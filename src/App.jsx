@@ -6,10 +6,20 @@ const App = () => {
 
   // Lessons from your links.txt
   const lessons = [
-    { id: 1, title: "ለመሐፈዝ የሚረዱ ነገሮች (1)", category: "Quran", link: "https://t.me/c/3871669780/2" },
-    { id: 2, title: "ለመሐፈዝ የሚረዱ ነገሮች (2)", category: "Quran", link: "https://t.me/c/3871669780/3" },
-    { id: 59, title: "ቱሕፈቱል አጥፋል (1)", category: "Tajweed", link: "https://t.me/c/3871669780/59" },
-    { id: 60, title: "ቱሕፈቱል አጥፋል (2)", category: "Tajweed", link: "https://t.me/c/3871669780/60" },
+    // --- የቁርኣን ትምህርት (Memorization) ---
+    ...Array.from({ length: 57 }, (_, i) => ({
+      id: i + 1,
+      title: `ለመሐፈዝ የሚረዱ ነገሮች (${i + 1})`,
+      category: "Quran",
+      link: `https://t.me/c/3871669780/${i + 2}`
+    })),
+    // --- ቱሕፈቱል አጥፋል (Tajweed) ---
+    ...Array.from({ length: 16 }, (_, i) => ({
+      id: i + 58,
+      title: `ቱሕፈቱል አጥፋል (${i + 1})`,
+      category: "Tajweed",
+      link: `https://t.me/c/3871669780/${i + 59}`
+    }))
   ];
 
   // Simple SVG icons
