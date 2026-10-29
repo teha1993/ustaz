@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { Search, Heart, PlayCircle, PauseCircle, X, BookOpen, Home, ArrowLeft, Mic } from 'lucide-react';
+import { Search, PlayCircle, PauseCircle, X, BookOpen, ArrowLeft, Mic, Home, Heart, FileText, Layers } from 'lucide-react';
 
-// Structured data mapped with your GitHub Release audio URLs
+// 1. THE DATA
 const categoriesData = {
   "የቁርኣን ትምህርት": {
     "ለመሐፈዝ የሚረዱ ነገሮች": [
@@ -80,24 +80,32 @@ const categoriesData = {
       { id: 14, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 13", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/13.mp3" },
       { id: 15, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 14", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/14.mp3" }
     ]
-  }
+ 
+    // Add your other 2 subfolders for Quran here
+    "ሌላ ንዑስ ምድብ 3": [],
+    "ሌላ ንዑስ ምድብ 4": [],
+  },
+  // The other 5 main folders from your screenshot
+  "የክታብ ቁራእት ድርስ": {},
+  "የፍቅህ ትምህርት": {},
+  "የዛዱል መዓድ ፈታዋ": {},
+  "ትሩፋት": {},
+  "ልዩ ወቅታዊ ትምህርት": {}
 };
 
 export default function App() {
-  const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+  const [activeTab, setActiveTab] = useState("home");
+  const [selectedMainCategory, setSelectedMainCategory] = useState(null); // Level 1
+  const [selectedSubCategory, setSelectedSubCategory] = useState(null); // Level 2
   const [currentLesson, setCurrentLesson] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const audioRef = useRef(null);
 
-  // Handle play/pause logic inside the app
   const togglePlay = (lesson) => {
     if (currentLesson?.id === lesson.id && currentLesson?.title === lesson.title) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
+      if (isPlaying) audioRef.current.pause();
+      else audioRef.current.play();
       setIsPlaying(!isPlaying);
     } else {
       setCurrentLesson(lesson);
@@ -120,9 +128,8 @@ export default function App() {
       {/* Header */}
       <div className="p-5 bg-emerald-800 rounded-b-3xl shadow-lg">
         <h1 className="text-xl font-bold">Ustaz Ahmed Adem</h1>
-        <p className="text-xs text-emerald-200 mt-1">ኦዲዮ ላይብረሪ (In-App Player)</p>
+        <p className="text-xs text-emerald-200 mt-1">6 ምድቦች • 406 ትምህርቶች</p>
 
-        {/* Search Bar */}
         <div className="mt-4 relative">
           <Search className="absolute left-3 top-3 text-slate-400" size={18} />
           <input 
@@ -152,17 +159,17 @@ export default function App() {
             </div>
           </div>
         ) : selectedSubCategory ? (
-          /* Subcategory Lessons View */
+          /* LEVEL 3: Lessons View (Audio List) */
           <div>
             <button 
               onClick={() => setSelectedSubCategory(null)}
               className="flex items-center gap-2 text-emerald-400 text-sm mb-4 font-medium"
             >
-              <ArrowLeft size={18} /> ወደ ምድቦች ተመለስ
+              <ArrowLeft size={18} /> ወደ ንዑስ ምድቦች ተመለስ
             </button>
             <h2 className="text-lg font-bold mb-4">{selectedSubCategory}</h2>
             <div className="space-y-3">
-              {categoriesData["የቁርኣን ትምህርት"][selectedSubCategory].map((lesson) => (
+              {categoriesData[selectedMainCategory][selectedSubCategory].map((lesson) => (
                 <div key={lesson.id} className="bg-slate-800 p-4 rounded-2xl flex items-center justify-between border border-slate-700 shadow">
                   <div className="flex-1 pr-3">
                     <span className="text-sm font-medium">{lesson.title}</span>
@@ -174,44 +181,70 @@ export default function App() {
               ))}
             </div>
           </div>
+        ) : selectedMainCategory ? (
+          /* LEVEL 2: Subcategories View (e.g. የቁርኣን ትምህርት selected) */
+          <div>
+            <button 
+              onClick={() => setSelectedMainCategory(null)}
+              className="flex items-center gap-2 text-emerald-400 text-sm mb-4 font-medium"
+            >
+              <ArrowLeft size={18} /> ወደ ዋና ምድቦች ተመለስ
+            </button>
+            <h2 className="text-lg font-bold mb-4">{selectedMainCategory}</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {Object.keys(categoriesData[selectedMainCategory]).map((subCat) => (
+                <div 
+                  key={subCat}
+                  onClick={() => setSelectedSubCategory(subCat)}
+                  className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
+                >
+                  <Layers className="text-emerald-400" size={28} />
+                  <div>
+                    <h3 className="text-sm font-bold line-clamp-2">{subCat}</h3>
+                    <p className="text-[11px] text-slate-400 mt-1">
+                      {categoriesData[selectedMainCategory][subCat].length} ትምህርቶች
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         ) : (
-          /* Main Categories View */
+          /* LEVEL 1: Main Categories View (The Home Screen from your screenshot) */
           <div>
             <h2 className="text-sm font-semibold text-slate-400 mb-3">ምድቦች</h2>
             <div className="grid grid-cols-2 gap-4">
               
-              {/* Folder 1: ለመሐፈዝ የሚረዱ ነገሮች */}
-              <div 
-                onClick={() => setSelectedSubCategory("ለመሐፈዝ የሚረዱ ነገሮች")}
-                className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
-              >
-                <BookOpen className="text-emerald-400" size={28} />
-                <div>
-                  <h3 className="text-sm font-bold">ለመሐፈዝ የሚረዱ ነገሮች</h3>
-                  <p className="text-[11px] text-slate-400 mt-1">57 ትምህርቶች</p>
-                </div>
-              </div>
-
-              {/* Folder 2: ቱሕፈቱል አጥፋል */}
-              <div 
-                onClick={() => setSelectedSubCategory("ቱሕፈቱል አጥፋል")}
-                className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
-              >
-                <Mic className="text-emerald-400" size={28} />
-                <div>
-                  <h3 className="text-sm font-bold">ቱሕፈቱል አጥፋል</h3>
-                  <p className="text-[11px] text-slate-400 mt-1">15 ትምህርቶች</p>
-                </div>
-              </div>
+              {Object.keys(categoriesData).map((mainCat, index) => {
+                // Just a visual helper to alternate icons
+                const icons = [<BookOpen size={32} className="text-blue-400" />, <BookOpen size={32} className="text-red-400" />, <BookOpen size={32} className="text-yellow-400" />, <BookOpen size={32} className="text-slate-400" />, <BookOpen size={32} className="text-emerald-400" />, <BookOpen size={32} className="text-purple-400" />];
+                const totalLessons = Object.values(categoriesData[mainCat]).flat().length;
+                
+                return (
+                  <div 
+                    key={mainCat}
+                    onClick={() => setSelectedMainCategory(mainCat)}
+                    className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
+                  >
+                    {icons[index % icons.length]}
+                    <div>
+                      <h3 className="text-sm font-bold">{mainCat}</h3>
+                      <p className="text-[11px] text-slate-400 mt-1">
+                        {Object.keys(categoriesData[mainCat]).length} ንዑስ ምድቦች • {totalLessons} ትምህርቶች
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
 
             </div>
           </div>
         )}
       </div>
 
-      {/* Spotify-Style Sticky Player Bar */}
+      {/* Sticky Player Bar */}
       {currentLesson && (
-        <div className="fixed bottom-4 left-4 right-4 bg-emerald-700 text-white p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-emerald-500 z-50">
+        <div className="fixed bottom-20 left-4 right-4 bg-emerald-700 text-white p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-emerald-500 z-50">
           <audio 
             ref={audioRef} 
             src={currentLesson.audioUrl} 
@@ -232,6 +265,24 @@ export default function App() {
           </button>
         </div>
       )}
+
+      {/* Bottom Navigation (Matching your screenshot) */}
+      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-slate-900 border-t border-slate-800 p-3 flex justify-around items-center z-40 rounded-t-3xl shadow-2xl">
+        <button onClick={() => { setActiveTab('home'); setSelectedMainCategory(null); setSelectedSubCategory(null); setSearchQuery(""); }} className={`p-3 rounded-full ${activeTab === 'home' ? 'bg-emerald-500 text-white' : 'text-slate-400 hover:text-white'}`}>
+          <Home size={24} />
+        </button>
+        <button className="text-slate-400 hover:text-white p-3">
+          <Heart size={24} />
+        </button>
+        <button className="text-slate-400 hover:text-white p-3 relative">
+          <FileText size={24} />
+          <span className="absolute top-1 right-1 bg-blue-500 text-[10px] font-bold px-1.5 py-0.5 rounded-full">10</span>
+        </button>
+        <button className="text-slate-400 hover:text-white p-3">
+          <Layers size={24} />
+        </button>
+      </div>
+
     </div>
   );
-    }
+  }
