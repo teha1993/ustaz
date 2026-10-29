@@ -361,6 +361,7 @@ const categoriesData = {
     "የዛዱል መዓድ ፈታዋ2)": []
   },
   "የጁሙዓ ኹጥባዎች": {
+    "የጁሙዓ ኹጥባዎች": [
 { id: 426, title: "(7)✨ ተከተሉ አዲስ ነገር አትፍጠሩ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Jummah/7.aac" },
 { id: 396, title: "(11)✨ ዚክር ትርፋማው ንግድ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Jummah/11.mp3" },
 { id: 397, title: "(12) የሂጅራ አቆጣጠር አስፈላጊነትና ጠቀሜታዎች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Jummah/12.mp3" },
@@ -498,7 +499,8 @@ const categoriesData = {
 { id: 393, title: "🔅ከጋብቻና ከሕጻናት ጋር ተያያዥ የሆኑ ዚክርና ዱዓዎች 41", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/41.mp3" },
 { id: 394, title: "🔹ከማስነጠስ ጋር የሚያያዙ ዚክርና አዳቦች 42", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/42.mp3" },
 { id: 395, title: "🔹 በተለያዩ አጋጣሚዎች የሚባሉ 9 ዚክርና ዱዓዎች 43", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/43.mp3" }
-                ],
+                 ]
+    },
      "ሙሓደራዎች": []
   }
 };
