@@ -1,288 +1,519 @@
-import React, { useState, useRef } from 'react';
-import { Search, PlayCircle, PauseCircle, X, BookOpen, ArrowLeft, Mic, Home, Heart, FileText, Layers } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import data from './data.json';
 
-// 1. THE DATA
-const categoriesData = {
-  "የቁርኣን ትምህርት": {
-    "ለመሐፈዝ የሚረዱ ነገሮች": [
-      { id: 1, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/01.mp3" },
-      { id: 2, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/02.mp3" },
-      { id: 3, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/03.m4a" },
-      { id: 4, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/04.mp3" },
-      { id: 5, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/05.mp3" },
-      { id: 6, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/06.mp3" },
-      { id: 7, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/07.mp3" },
-      { id: 8, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/08.mp3" },
-      { id: 9, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/09.mp3" },
-      { id: 10, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/10.mp3" },
-      { id: 11, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/11.mp3" },
-      { id: 12, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/12.mp3" },
-      { id: 13, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/13.mp3" },
-      { id: 14, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (14)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/14.mp3" },
-      { id: 15, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (15)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/15.mp3" },
-      { id: 16, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (16)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/16.mp3" },
-      { id: 17, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (17)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/17.mp3" },
-      { id: 18, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (18)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/18.mp3" },
-      { id: 19, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (19)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/19.mp3" },
-      { id: 20, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (20)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/20.amr" },
-      { id: 21, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (21)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/21.mp3" },
-      { id: 22, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (22)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/22.mp3" },
-      { id: 23, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (23)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/23.mp3" },
-      { id: 24, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (24)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/24.mp3" },
-      { id: 25, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (25)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/25.mp3" },
-      { id: 26, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (26)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/26.mp3" },
-      { id: 27, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (27)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/27.mp3" },
-      { id: 28, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (28)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/28.mp3" },
-      { id: 29, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (29)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/29.mp3" },
-      { id: 30, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (30)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/30.mp3" },
-      { id: 31, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (31)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/31.mp3" },
-      { id: 32, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (32)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/32.mp3" },
-      { id: 33, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (33)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/33.mp3" },
-      { id: 34, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (34)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/34.mp3" },
-      { id: 35, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (35)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/35.mp3" },
-      { id: 36, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (36)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/36.mp3" },
-      { id: 37, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (37)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/37.mp3" },
-      { id: 38, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (38)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/38.mp3" },
-      { id: 39, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (39)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/39.mp3" },
-      { id: 40, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (40)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/40.mp3" },
-      { id: 41, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (41)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/41.mp3" },
-      { id: 42, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (42)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/42.mp3" },
-      { id: 43, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (43)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/43.mp3" },
-      { id: 44, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (44)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/44.mp3" },
-      { id: 45, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (45)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/45.mp3" },
-      { id: 46, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (46)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/46.mp3" },
-      { id: 47, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (47)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/47.mp3" },
-      { id: 48, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (48)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/48.mp3" },
-      { id: 49, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (49)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/49.mp3" },
-      { id: 50, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (50)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/50.mp3" },
-      { id: 51, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (51)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/51.mp3" },
-      { id: 52, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (52)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/52.mp3" },
-      { id: 53, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (53)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/53.mp3" },
-      { id: 54, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (54)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/54.mp3" },
-      { id: 55, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (55)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/55.mp3" },
-      { id: 56, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (56)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/56.mp3" },
-      { id: 57, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (57)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/57.mp3" }
-    ],
-    "ቱሕፈቱል አጥፋል": [
-      { id: 1, title: "የተጅዊድ ትምህርት መግቢያ (Introduction)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/01.1.mp3" },
-      { id: 2, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 1", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/01.mp3" },
-      { id: 3, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 2", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/02.mp3" },
-      { id: 4, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 3", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/03.mp3" },
-      { id: 5, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 4", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/04.mp3" },
-      { id: 6, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 5", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/05.mp3" },
-      { id: 7, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 6", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/06.mp3" },
-      { id: 8, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 7", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/07.mp3" },
-      { id: 9, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 8", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/08.mp3" },
-      { id: 10, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 9", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/09.mp3" },
-      { id: 11, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 10", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/10.mp3" },
-      { id: 12, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 11", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/11.mp3" },
-      { id: 13, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 12", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/12.mp3" },
-      { id: 14, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 13", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/13.mp3" },
-      { id: 15, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 14", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/14.mp3" }
-    ]
- 
-    // Add your other 2 subfolders for Quran here
-    "ሌላ ንዑስ ምድብ 3": [],
-    "ሌላ ንዑስ ምድብ 4": [],
-  },
-  // The other 5 main folders from your screenshot
-  "የክታብ ቁራእት ድርስ": {},
-  "የፍቅህ ትምህርት": {},
-  "የዛዱል መዓድ ፈታዋ": {},
-  "ትሩፋት": {},
-  "ልዩ ወቅታዊ ትምህርት": {}
-};
+const App = () => {
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+  const [viewMode, setViewMode] = useState('categories'); // categories, subcategories, lessons
+  const [recentLessons, setRecentLessons] = useState([]);
 
-export default function App() {
-  const [activeTab, setActiveTab] = useState("home");
-  const [selectedMainCategory, setSelectedMainCategory] = useState(null); // Level 1
-  const [selectedSubCategory, setSelectedSubCategory] = useState(null); // Level 2
-  const [currentLesson, setCurrentLesson] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const audioRef = useRef(null);
+  // Extract all main categories
+  const mainCategories = Object.keys(data);
+  
+  // Extract all lessons for search functionality
+  const allLessons = [];
+  Object.entries(data).forEach(([categoryName, category]) => {
+    Object.entries(category).forEach(([subcategoryName, subcategory]) => {
+      Object.entries(subcategory).forEach(([lessonName, lessonId]) => {
+        allLessons.push({
+          name: lessonName,
+          id: lessonId,
+          category: categoryName,
+          subcategory: subcategoryName
+        });
+      });
+    });
+  });
 
-  const togglePlay = (lesson) => {
-    if (currentLesson?.id === lesson.id && currentLesson?.title === lesson.title) {
-      if (isPlaying) audioRef.current.pause();
-      else audioRef.current.play();
-      setIsPlaying(!isPlaying);
+  // Initialize Telegram Web App
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+      window.Telegram.WebApp.setHeaderColor('#047857'); // Emerald color
+    }
+    
+    // Load favorites from localStorage
+    const savedFavorites = localStorage.getItem('ustaz_favorites');
+    if (savedFavorites) {
+      setFavorites(JSON.parse(savedFavorites));
+    }
+    
+    // Load recent lessons
+    const savedRecent = localStorage.getItem('ustaz_recent');
+    if (savedRecent) {
+      setRecentLessons(JSON.parse(savedRecent));
+    }
+  }, []);
+
+  // Save favorites to localStorage
+  useEffect(() => {
+    localStorage.setItem('ustaz_favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  // Save recent lessons
+  const addToRecent = (lesson) => {
+    const newRecent = [lesson, ...recentLessons.filter(l => l.id !== lesson.id)].slice(0, 10);
+    setRecentLessons(newRecent);
+    localStorage.setItem('ustaz_recent', JSON.stringify(newRecent));
+  };
+
+  // Filter lessons based on search
+  const filteredLessons = allLessons.filter(lesson => 
+    lesson.name.toLowerCase().includes(search.toLowerCase()) ||
+    lesson.category.toLowerCase().includes(search.toLowerCase()) ||
+    lesson.subcategory.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Get subcategories for selected category
+  const getSubcategories = () => {
+    if (!selectedCategory) return [];
+    return Object.keys(data[selectedCategory] || {});
+  };
+
+  // Get lessons for selected subcategory
+  const getLessons = () => {
+    if (!selectedCategory || !selectedSubcategory) return [];
+    const subcatData = data[selectedCategory]?.[selectedSubcategory];
+    if (!subcatData) return [];
+    return Object.entries(subcatData);
+  };
+
+  // Toggle favorite
+  const toggleFavorite = (lessonId, e) => {
+    e?.stopPropagation();
+    if (favorites.includes(lessonId)) {
+      setFavorites(favorites.filter(id => id !== lessonId));
     } else {
-      setCurrentLesson(lesson);
-      setIsPlaying(true);
+      setFavorites([...favorites, lessonId]);
     }
   };
 
-  // Flatten lessons for global search
-  const allLessons = Object.values(categoriesData).flatMap(subCats => 
-    Object.values(subCats).flat()
-  );
+  // Generate Telegram link
+  const getTelegramLink = (lessonId) => {
+    return `https://t.me/c/3871669780/${lessonId}`;
+  };
 
-  const filteredLessons = searchQuery 
-    ? allLessons.filter(l => l.title.toLowerCase().includes(searchQuery.toLowerCase()))
-    : null;
+  // Open lesson
+  const openLesson = (lessonName, lessonId) => {
+    window.open(getTelegramLink(lessonId), '_blank');
+    addToRecent({ name: lessonName, id: lessonId });
+  };
+
+  // Navigation functions
+  const goBack = () => {
+    if (viewMode === 'lessons') {
+      setViewMode('subcategories');
+      setSelectedSubcategory(null);
+    } else if (viewMode === 'subcategories') {
+      setViewMode('categories');
+      setSelectedCategory(null);
+    }
+  };
+
+  // Format lesson name for display
+  const formatLessonName = (name) => {
+    return name.replace('.mp3', '').replace('.pdf', '');
+  };
+
+  // Check if file is PDF
+  const isPDF = (name) => {
+    return name.toLowerCase().endsWith('.pdf');
+  };
+
+  // Get category icon
+  const getCategoryIcon = (category) => {
+    const icons = {
+      'የቁርኣን ትምህርት': '📖',
+      'የቁርኣን ተፍሲር': '🔊',
+      'የኪታብ ቂርኣት ደርስ': '📚',
+      'የፊቅህ ትምህርት': '🕌',
+      'የዛዱል መዓድ ፈታዋ': '⚖️',
+      'የጁሙዓ ኹጥባዎች': '🕋',
+      'ልዩ ወቅታዊ ትምህርት': '⭐'
+    };
+    return icons[category] || '📁';
+  };
+
+  // Statistics
+  const totalCategories = mainCategories.length;
+  const totalLessons = allLessons.length;
+  const pdfCount = allLessons.filter(l => isPDF(l.name)).length;
+
+  // Clear search
+  const clearSearch = () => {
+    setSearch("");
+  };
+
+  // Go to home
+  const goHome = () => {
+    setViewMode('categories');
+    setSelectedCategory(null);
+    setSelectedSubcategory(null);
+    setSearch("");
+  };
 
   return (
-    <div className="max-w-md mx-auto min-h-screen bg-slate-900 text-white pb-36 font-sans">
-      
+    <div className="max-w-md mx-auto min-h-screen bg-gradient-to-b from-emerald-900 to-slate-900 text-white pb-24">
       {/* Header */}
-      <div className="p-5 bg-emerald-800 rounded-b-3xl shadow-lg">
-        <h1 className="text-xl font-bold">Ustaz Ahmed Adem</h1>
-        <p className="text-xs text-emerald-200 mt-1">6 ምድቦች • 406 ትምህርቶች</p>
-
-        <div className="mt-4 relative">
-          <Search className="absolute left-3 top-3 text-slate-400" size={18} />
+      <div className="p-6 pt-10 bg-gradient-to-r from-emerald-700 to-emerald-800 rounded-b-[40px] shadow-2xl relative">
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-2xl font-bold">Ustaz Ahmed Adem</h1>
+          <button 
+            onClick={goHome}
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20"
+          >
+            🏠
+          </button>
+        </div>
+        
+        <div className="flex items-center gap-2 text-sm text-emerald-200 mb-4">
+          <span>{totalCategories} ምድቦች</span>
+          <span>•</span>
+          <span>{totalLessons} ትምህርቶች</span>
+          {favorites.length > 0 && (
+            <>
+              <span>•</span>
+              <span className="text-red-300">{favorites.length} ፈቃዶች</span>
+            </>
+          )}
+        </div>
+        
+        <div className="relative">
+          <div className="absolute left-3 top-3 text-emerald-200">
+            🔍
+          </div>
           <input 
-            type="text"
-            placeholder="ትምህርት ይፈልጉ..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-900/60 border border-emerald-600/50 rounded-2xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
+            type="text" 
+            placeholder="ትምህርት ፈልግ..." 
+            className="w-full pl-10 pr-10 py-3 bg-emerald-800/60 backdrop-blur-sm rounded-2xl border border-emerald-600 placeholder-emerald-300 text-sm focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
+          {search && (
+            <button 
+              onClick={clearSearch}
+              className="absolute right-3 top-3 text-emerald-300 hover:text-white"
+            >
+              ✕
+            </button>
+          )}
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="p-5">
-        {/* Search Results View */}
-        {searchQuery ? (
-          <div>
-            <h2 className="text-sm font-semibold text-slate-400 mb-3">የፍለጋ ውጤቶች ({filteredLessons.length})</h2>
-            <div className="space-y-3">
-              {filteredLessons.map((lesson, index) => (
-                <div key={`${lesson.id}-${index}`} className="bg-slate-800 p-4 rounded-2xl flex items-center justify-between border border-slate-700">
-                  <span className="text-sm font-medium">{lesson.title}</span>
-                  <button onClick={() => togglePlay(lesson)} className="text-emerald-400 hover:text-emerald-300">
-                    {currentLesson?.id === lesson.id && currentLesson?.title === lesson.title && isPlaying ? <PauseCircle size={30} /> : <PlayCircle size={30} />}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : selectedSubCategory ? (
-          /* LEVEL 3: Lessons View (Audio List) */
-          <div>
-            <button 
-              onClick={() => setSelectedSubCategory(null)}
-              className="flex items-center gap-2 text-emerald-400 text-sm mb-4 font-medium"
-            >
-              <ArrowLeft size={18} /> ወደ ንዑስ ምድቦች ተመለስ
-            </button>
-            <h2 className="text-lg font-bold mb-4">{selectedSubCategory}</h2>
-            <div className="space-y-3">
-              {categoriesData[selectedMainCategory][selectedSubCategory].map((lesson) => (
-                <div key={lesson.id} className="bg-slate-800 p-4 rounded-2xl flex items-center justify-between border border-slate-700 shadow">
-                  <div className="flex-1 pr-3">
-                    <span className="text-sm font-medium">{lesson.title}</span>
-                  </div>
-                  <button onClick={() => togglePlay(lesson)} className="text-emerald-400 hover:text-emerald-300">
-                    {currentLesson?.id === lesson.id && currentLesson?.title === lesson.title && isPlaying ? <PauseCircle size={32} /> : <PlayCircle size={32} />}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : selectedMainCategory ? (
-          /* LEVEL 2: Subcategories View (e.g. የቁርኣን ትምህርት selected) */
-          <div>
-            <button 
-              onClick={() => setSelectedMainCategory(null)}
-              className="flex items-center gap-2 text-emerald-400 text-sm mb-4 font-medium"
-            >
-              <ArrowLeft size={18} /> ወደ ዋና ምድቦች ተመለስ
-            </button>
-            <h2 className="text-lg font-bold mb-4">{selectedMainCategory}</h2>
-            <div className="grid grid-cols-2 gap-4">
-              {Object.keys(categoriesData[selectedMainCategory]).map((subCat) => (
-                <div 
-                  key={subCat}
-                  onClick={() => setSelectedSubCategory(subCat)}
-                  className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
+        {/* Recent Lessons */}
+        {!search && recentLessons.length > 0 && viewMode === 'categories' && (
+          <div className="mb-6">
+            <h2 className="text-lg font-bold mb-3 text-emerald-300 flex items-center gap-2">
+              <span>🕐</span> በቅርብ ጊዜ ያየሃቸው
+            </h2>
+            <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+              {recentLessons.slice(0, 5).map(lesson => (
+                <button
+                  key={lesson.id}
+                  onClick={() => openLesson(lesson.name, lesson.id)}
+                  className="flex-shrink-0 bg-slate-800/50 backdrop-blur-sm p-3 rounded-xl border border-slate-700 hover:border-emerald-500 transition-colors"
                 >
-                  <Layers className="text-emerald-400" size={28} />
-                  <div>
-                    <h3 className="text-sm font-bold line-clamp-2">{subCat}</h3>
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      {categoriesData[selectedMainCategory][subCat].length} ትምህርቶች
-                    </p>
+                  <div className="text-xs font-bold truncate w-24">
+                    {formatLessonName(lesson.name)}
                   </div>
-                </div>
+                  <div className="text-xs text-slate-400 mt-1">
+                    #{lesson.id}
+                  </div>
+                </button>
               ))}
             </div>
           </div>
-        ) : (
-          /* LEVEL 1: Main Categories View (The Home Screen from your screenshot) */
-          <div>
-            <h2 className="text-sm font-semibold text-slate-400 mb-3">ምድቦች</h2>
-            <div className="grid grid-cols-2 gap-4">
-              
-              {Object.keys(categoriesData).map((mainCat, index) => {
-                // Just a visual helper to alternate icons
-                const icons = [<BookOpen size={32} className="text-blue-400" />, <BookOpen size={32} className="text-red-400" />, <BookOpen size={32} className="text-yellow-400" />, <BookOpen size={32} className="text-slate-400" />, <BookOpen size={32} className="text-emerald-400" />, <BookOpen size={32} className="text-purple-400" />];
-                const totalLessons = Object.values(categoriesData[mainCat]).flat().length;
-                
-                return (
-                  <div 
-                    key={mainCat}
-                    onClick={() => setSelectedMainCategory(mainCat)}
-                    className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
-                  >
-                    {icons[index % icons.length]}
-                    <div>
-                      <h3 className="text-sm font-bold">{mainCat}</h3>
-                      <p className="text-[11px] text-slate-400 mt-1">
-                        {Object.keys(categoriesData[mainCat]).length} ንዑስ ምድቦች • {totalLessons} ትምህርቶች
-                      </p>
+        )}
+
+        {/* Search Results */}
+        {search && (
+          <div className="mb-6 fade-in">
+            <div className="flex justify-between items-center mb-3">
+              <h2 className="text-lg font-bold text-emerald-300">
+                የተገኙ ትምህርቶች ({filteredLessons.length})
+              </h2>
+              <button
+                onClick={clearSearch}
+                className="text-sm text-emerald-400 hover:text-emerald-300"
+              >
+                አጽዳ
+              </button>
+            </div>
+            <div className="space-y-3 max-h-96 overflow-y-auto pr-2">
+              {filteredLessons.map(lesson => (
+                <div key={lesson.id} className="bg-slate-800/50 backdrop-blur-sm p-4 rounded-2xl border border-slate-700 hover:border-emerald-500 transition-colors">
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h3 className="text-sm font-bold mb-1">{formatLessonName(lesson.name)}</h3>
+                      <div className="flex items-center gap-2 text-xs text-slate-400">
+                        <span className="bg-emerald-900/50 px-2 py-1 rounded-full">{lesson.category}</span>
+                        <span>→</span>
+                        <span className="bg-slate-700/50 px-2 py-1 rounded-full">{lesson.subcategory}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button 
+                        onClick={(e) => toggleFavorite(lesson.id, e)}
+                        className={`p-2 rounded-full ${favorites.includes(lesson.id) ? 'bg-red-500/20 text-red-400' : 'bg-slate-700/50 text-slate-400 hover:text-red-400'}`}
+                      >
+                        {favorites.includes(lesson.id) ? '❤️' : '🤍'}
+                      </button>
+                      <button 
+                        onClick={() => openLesson(lesson.name, lesson.id)}
+                        className={`p-2 rounded-full ${isPDF(lesson.name) ? 'bg-blue-500/20 text-blue-400' : 'bg-emerald-500/20 text-emerald-400'} hover:opacity-80`}
+                      >
+                        {isPDF(lesson.name) ? '📄' : '▶️'}
+                      </button>
                     </div>
                   </div>
-                )
-              })}
-
+                </div>
+              ))}
             </div>
+          </div>
+        )}
+
+        {/* Categories View */}
+        {!search && viewMode === 'categories' && (
+          <div className="fade-in">
+            <h2 className="text-lg font-bold mb-4 text-emerald-400">ምድቦች</h2>
+            <div className="grid grid-cols-2 gap-3">
+              {mainCategories.map(category => {
+                const subcatCount = Object.keys(data[category] || {}).length;
+                const lessonCount = Object.values(data[category] || {}).reduce((sum, subcat) => 
+                  sum + Object.keys(subcat).length, 0);
+                
+                return (
+                  <button 
+                    key={category}
+                    onClick={() => {
+                      setSelectedCategory(category);
+                      setViewMode('subcategories');
+                    }}
+                    className="bg-gradient-to-br from-slate-800 to-slate-900 p-4 rounded-2xl border border-slate-700 hover:border-emerald-500 hover:scale-[1.02] transition-all text-left"
+                  >
+                    <div className="text-2xl mb-2">
+                      {getCategoryIcon(category)}
+                    </div>
+                    <h3 className="font-bold text-sm mb-1 truncate">{category}</h3>
+                    <p className="text-xs text-slate-400">
+                      {subcatCount} ንዑስ ምድቦች • {lessonCount} ትምህርቶች
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Statistics */}
+            <div className="mt-8 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-5 border border-slate-700">
+              <h3 className="font-bold mb-3 text-emerald-300">ስታቲስቲክስ</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center p-3 bg-emerald-900/20 rounded-xl">
+                  <div className="text-2xl font-bold">{totalCategories}</div>
+                  <div className="text-xs text-emerald-300">ምድቦች</div>
+                </div>
+                <div className="text-center p-3 bg-blue-900/20 rounded-xl">
+                  <div className="text-2xl font-bold">{totalLessons}</div>
+                  <div className="text-xs text-blue-300">ትምህርቶች</div>
+                </div>
+                <div className="text-center p-3 bg-red-900/20 rounded-xl">
+                  <div className="text-2xl font-bold">{favorites.length}</div>
+                  <div className="text-xs text-red-300">ፈቃዶች</div>
+                </div>
+                <div className="text-center p-3 bg-purple-900/20 rounded-xl">
+                  <div className="text-2xl font-bold">{pdfCount}</div>
+                  <div className="text-xs text-purple-300">ፒዲኤፍ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Subcategories View */}
+        {!search && viewMode === 'subcategories' && selectedCategory && (
+          <div className="fade-in">
+            <div className="flex items-center gap-3 mb-6">
+              <button 
+                onClick={goBack}
+                className="p-2 rounded-full bg-slate-700/50 hover:bg-slate-600/50"
+              >
+                ←
+              </button>
+              <div className="text-2xl">
+                {getCategoryIcon(selectedCategory)}
+              </div>
+              <div className="flex-1">
+                <h2 className="text-lg font-bold">{selectedCategory}</h2>
+                <p className="text-sm text-slate-400">ንዑስ ምድቦችን ይምረጡ</p>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {getSubcategories().map(subcategory => {
+                const subcatData = data[selectedCategory][subcategory];
+                const lessonCount = Object.keys(subcatData).length;
+                const hasPDF = Object.keys(subcatData).some(name => isPDF(name));
+                
+                return (
+                  <button 
+                    key={subcategory}
+                    onClick={() => {
+                      setSelectedSubcategory(subcategory);
+                      setViewMode('lessons');
+                    }}
+                    className="w-full bg-slate-800/50 backdrop-blur-sm p-4 rounded-2xl border border-slate-700 hover:border-emerald-500 transition-colors text-left"
+                  >
+                    <div className="flex justify-between items-center">
+                      <div className="flex-1">
+                        <h3 className="font-bold text-sm mb-1">{subcategory}</h3>
+                        <div className="flex items-center gap-2 text-xs text-slate-400">
+                          <span>{lessonCount} ትምህርቶች</span>
+                          {hasPDF && <span className="text-blue-400">📄 ፒዲኤፍ አብሮ ይገኛል</span>}
+                        </div>
+                      </div>
+                      <div className="text-xl">
+                        {subcategory.includes('ሱረቱ') && '🕌'}
+                        {subcategory.includes('ዐቂደተክ') && '📿'}
+                        {subcategory.includes('ተጅዊድ') && '🎵'}
+                        {subcategory.includes('ሐዲስ') && '📜'}
+                        {!subcategory.includes('ሱረቱ') && !subcategory.includes('ዐቂደተክ') && 
+                         !subcategory.includes('ተጅዊድ') && !subcategory.includes('ሐዲስ') && '📚'}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Lessons View */}
+        {!search && viewMode === 'lessons' && selectedCategory && selectedSubcategory && (
+          <div className="fade-in">
+            <div className="flex items-center gap-3 mb-6">
+              <button 
+                onClick={goBack}
+                className="p-2 rounded-full bg-slate-700/50 hover:bg-slate-600/50"
+              >
+                ←
+              </button>
+              <div>
+                <div className="flex items-center gap-2 text-sm text-slate-400 mb-1">
+                  <span className="bg-emerald-900/50 px-2 py-1 rounded-full">{selectedCategory}</span>
+                  <span>→</span>
+                  <span className="bg-slate-700/50 px-2 py-1 rounded-full">{selectedSubcategory}</span>
+                </div>
+                <h2 className="text-lg font-bold">{selectedSubcategory}</h2>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {getLessons().map(([lessonName, lessonId]) => (
+                <div key={lessonId} className="bg-slate-800/50 backdrop-blur-sm p-4 rounded-2xl border border-slate-700 hover:border-emerald-500 transition-colors group">
+                  <div className="flex justify-between items-center">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-sm mb-1 flex items-center gap-2">
+                        {formatLessonName(lessonName)}
+                        {isPDF(lessonName) && (
+                          <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">PDF</span>
+                        )}
+                      </h3>
+                      <div className="flex items-center gap-3 text-xs text-slate-400">
+                        <span>መለያ: {lessonId}</span>
+                        <span className={`px-2 py-1 rounded-full ${isPDF(lessonName) ? 'bg-blue-500/20 text-blue-400' : 'bg-emerald-500/20 text-emerald-400'}`}>
+                          {isPDF(lessonName) ? '📄 የሚነበብ' : '🔊 የሚሰማ'}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button 
+                        onClick={(e) => toggleFavorite(lessonId, e)}
+                        className={`p-2 rounded-full ${favorites.includes(lessonId) ? 'bg-red-500/20 text-red-400' : 'bg-slate-700/50 text-slate-400 hover:text-red-400'}`}
+                      >
+                        {favorites.includes(lessonId) ? '❤️' : '🤍'}
+                      </button>
+                      <button 
+                        onClick={() => openLesson(lessonName, lessonId)}
+                        className={`p-3 rounded-full ${isPDF(lessonName) ? 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30' : 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30'} transition-colors`}
+                      >
+                        {isPDF(lessonName) ? '📄' : '▶️'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Empty State */}
+        {search && filteredLessons.length === 0 && (
+          <div className="text-center py-10">
+            <div className="text-5xl mb-4">🔍</div>
+            <h3 className="text-lg font-bold text-slate-300 mb-2">ትምህርት አልተገኘም</h3>
+            <p className="text-slate-400">ሌላ ቃል ይፈትሹ</p>
           </div>
         )}
       </div>
 
-      {/* Sticky Player Bar */}
-      {currentLesson && (
-        <div className="fixed bottom-20 left-4 right-4 bg-emerald-700 text-white p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-emerald-500 z-50">
-          <audio 
-            ref={audioRef} 
-            src={currentLesson.audioUrl} 
-            autoPlay 
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-            onEnded={() => setIsPlaying(false)}
-          />
-          <div className="flex-1 overflow-hidden">
-            <p className="text-xs font-bold truncate">{currentLesson.title}</p>
-            <p className="text-[10px] text-emerald-200 italic">አሁን በመደመጥ ላይ...</p>
-          </div>
-          <button onClick={() => togglePlay(currentLesson)} className="text-white bg-emerald-600 p-2 rounded-full hover:bg-emerald-500">
-            {isPlaying ? <PauseCircle size={26} /> : <PlayCircle size={26} />}
-          </button>
-          <button onClick={() => { audioRef.current.pause(); setCurrentLesson(null); setIsPlaying(false); }} className="text-emerald-200 hover:text-white p-1">
-            <X size={20} />
-          </button>
-        </div>
-      )}
-
-      {/* Bottom Navigation (Matching your screenshot) */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-slate-900 border-t border-slate-800 p-3 flex justify-around items-center z-40 rounded-t-3xl shadow-2xl">
-        <button onClick={() => { setActiveTab('home'); setSelectedMainCategory(null); setSelectedSubCategory(null); setSearchQuery(""); }} className={`p-3 rounded-full ${activeTab === 'home' ? 'bg-emerald-500 text-white' : 'text-slate-400 hover:text-white'}`}>
-          <Home size={24} />
+      {/* Bottom Navigation */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-slate-900/90 backdrop-blur-lg rounded-full py-3 px-6 flex justify-between items-center border border-slate-700 shadow-2xl">
+        <button 
+          onClick={goHome}
+          className={`p-2 rounded-full ${viewMode === 'categories' ? 'bg-emerald-500 text-white' : 'text-slate-400 hover:text-white'}`}
+          title="መነሻ"
+        >
+          🏠
         </button>
-        <button className="text-slate-400 hover:text-white p-3">
-          <Heart size={24} />
+        <button 
+          onClick={() => {
+            const favLessons = allLessons.filter(l => favorites.includes(l.id));
+            if (favLessons.length > 0) {
+              setSearch(favLessons[0].name.split(' ')[0]);
+            } else {
+              setSearch("ፈቃድ ትምህርቶች");
+            }
+          }}
+          className={`p-2 rounded-full relative ${favorites.length > 0 ? 'text-red-400 hover:text-red-300' : 'text-slate-400'}`}
+          title="ፈቃዶች"
+        >
+          {favorites.length > 0 ? '❤️' : '🤍'}
+          {favorites.length > 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              {favorites.length}
+            </span>
+          )}
         </button>
-        <button className="text-slate-400 hover:text-white p-3 relative">
-          <FileText size={24} />
-          <span className="absolute top-1 right-1 bg-blue-500 text-[10px] font-bold px-1.5 py-0.5 rounded-full">10</span>
+        <button 
+          onClick={() => setSearch('.pdf')}
+          className="p-2 rounded-full text-blue-400 hover:text-blue-300 relative"
+          title="ፒዲኤፍ ፋይሎች"
+        >
+          📄
+          {pdfCount > 0 && (
+            <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              {pdfCount}
+            </span>
+          )}
         </button>
-        <button className="text-slate-400 hover:text-white p-3">
-          <Layers size={24} />
+        <button 
+          onClick={() => {
+            // Show all lessons
+            setSearch('');
+            setViewMode('categories');
+          }}
+          className="p-2 rounded-full text-emerald-400 hover:text-emerald-300"
+          title="ሁሉም ትምህርቶች"
+        >
+          📚
         </button>
       </div>
-
     </div>
   );
-  }
+};
+
+export default App;
