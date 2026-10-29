@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Search, Heart, PlayCircle, PauseCircle, X, BookOpen, Home, ArrowLeft } from 'lucide-react';
+import { Search, Heart, PlayCircle, PauseCircle, X, BookOpen, Home, ArrowLeft, Mic } from 'lucide-react';
 
 // Structured data mapped with your GitHub Release audio URLs
 const categoriesData = {
@@ -62,6 +62,23 @@ const categoriesData = {
       { id: 55, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (55)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/55.mp3" },
       { id: 56, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (56)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/56.mp3" },
       { id: 57, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (57)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/57.mp3" }
+    ],
+    "ቱሕፈቱል አጥፋል": [
+      { id: 1, title: "የተጅዊድ ትምህርት መግቢያ (Introduction)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/01.1.mp3" },
+      { id: 2, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 1", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/01.mp3" },
+      { id: 3, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 2", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/02.mp3" },
+      { id: 4, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 3", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/03.mp3" },
+      { id: 5, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 4", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/04.mp3" },
+      { id: 6, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 5", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/05.mp3" },
+      { id: 7, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 6", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/06.mp3" },
+      { id: 8, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 7", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/07.mp3" },
+      { id: 9, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 8", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/08.mp3" },
+      { id: 10, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 9", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/09.mp3" },
+      { id: 11, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 10", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/10.mp3" },
+      { id: 12, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 11", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/11.mp3" },
+      { id: 13, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 12", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/12.mp3" },
+      { id: 14, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 13", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/13.mp3" },
+      { id: 15, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 14", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/14.mp3" }
     ]
   }
 };
@@ -75,7 +92,7 @@ export default function App() {
 
   // Handle play/pause logic inside the app
   const togglePlay = (lesson) => {
-    if (currentLesson?.id === lesson.id) {
+    if (currentLesson?.id === lesson.id && currentLesson?.title === lesson.title) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
@@ -124,11 +141,11 @@ export default function App() {
           <div>
             <h2 className="text-sm font-semibold text-slate-400 mb-3">የፍለጋ ውጤቶች ({filteredLessons.length})</h2>
             <div className="space-y-3">
-              {filteredLessons.map(lesson => (
-                <div key={lesson.id} className="bg-slate-800 p-4 rounded-2xl flex items-center justify-between border border-slate-700">
+              {filteredLessons.map((lesson, index) => (
+                <div key={`${lesson.id}-${index}`} className="bg-slate-800 p-4 rounded-2xl flex items-center justify-between border border-slate-700">
                   <span className="text-sm font-medium">{lesson.title}</span>
                   <button onClick={() => togglePlay(lesson)} className="text-emerald-400 hover:text-emerald-300">
-                    {currentLesson?.id === lesson.id && isPlaying ? <PauseCircle size={30} /> : <PlayCircle size={30} />}
+                    {currentLesson?.id === lesson.id && currentLesson?.title === lesson.title && isPlaying ? <PauseCircle size={30} /> : <PlayCircle size={30} />}
                   </button>
                 </div>
               ))}
@@ -145,13 +162,13 @@ export default function App() {
             </button>
             <h2 className="text-lg font-bold mb-4">{selectedSubCategory}</h2>
             <div className="space-y-3">
-              {categoriesData["የቁርኣን ትምህርት"][selectedSubCategory].map(lesson => (
+              {categoriesData["የቁርኣን ትምህርት"][selectedSubCategory].map((lesson) => (
                 <div key={lesson.id} className="bg-slate-800 p-4 rounded-2xl flex items-center justify-between border border-slate-700 shadow">
                   <div className="flex-1 pr-3">
                     <span className="text-sm font-medium">{lesson.title}</span>
                   </div>
                   <button onClick={() => togglePlay(lesson)} className="text-emerald-400 hover:text-emerald-300">
-                    {currentLesson?.id === lesson.id && isPlaying ? <PauseCircle size={32} /> : <PlayCircle size={32} />}
+                    {currentLesson?.id === lesson.id && currentLesson?.title === lesson.title && isPlaying ? <PauseCircle size={32} /> : <PlayCircle size={32} />}
                   </button>
                 </div>
               ))}
@@ -162,6 +179,8 @@ export default function App() {
           <div>
             <h2 className="text-sm font-semibold text-slate-400 mb-3">ምድቦች</h2>
             <div className="grid grid-cols-2 gap-4">
+              
+              {/* Folder 1: ለመሐፈዝ የሚረዱ ነገሮች */}
               <div 
                 onClick={() => setSelectedSubCategory("ለመሐፈዝ የሚረዱ ነገሮች")}
                 className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
@@ -169,9 +188,22 @@ export default function App() {
                 <BookOpen className="text-emerald-400" size={28} />
                 <div>
                   <h3 className="text-sm font-bold">ለመሐፈዝ የሚረዱ ነገሮች</h3>
-                  <p className="text-[11px] text-slate-400 mt-1">20 ትምህርቶች</p>
+                  <p className="text-[11px] text-slate-400 mt-1">57 ትምህርቶች</p>
                 </div>
               </div>
+
+              {/* Folder 2: ቱሕፈቱል አጥፋል */}
+              <div 
+                onClick={() => setSelectedSubCategory("ቱሕፈቱል አጥፋል")}
+                className="bg-slate-800 p-4 rounded-3xl border border-slate-700 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-32"
+              >
+                <Mic className="text-emerald-400" size={28} />
+                <div>
+                  <h3 className="text-sm font-bold">ቱሕፈቱል አጥፋል</h3>
+                  <p className="text-[11px] text-slate-400 mt-1">15 ትምህርቶች</p>
+                </div>
+              </div>
+
             </div>
           </div>
         )}
@@ -202,4 +234,4 @@ export default function App() {
       )}
     </div>
   );
-}
+    }
