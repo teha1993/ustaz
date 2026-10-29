@@ -226,7 +226,7 @@ const categoriesData = {
 { id: 258, title: "ኹዝ ዐቂደተክ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Huzakida/7.mp3" },
 { id: 259, title: "ኹዝ ዐቂደተክ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Huzakida/8.mp3" },
 { id: 260, title: "ኹዝ ዐቂደተክ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Huzakida/9.mp3" },
-{ id: 261, title: "ኹዝ ዐቂደተክ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Huzakida/10.mp3" },
+{ id: 261, title: "ኹዝ ዐቂደተክ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Huzakida/10.mp3" }
 ],
     "ፈድሉል ኢስላም": [
 { id: 262, title: "ፈድሉል ኢስላም (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fadlul-islam/01.mp3" },
@@ -269,14 +269,14 @@ const categoriesData = {
 { id: 248, title: "የአህሉሱንናህ ዐቂዳህ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Akidha-Ahelelsunah/09.mp3" },
 { id: 249, title: "የአህሉሱንናህ ዐቂዳህ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Akidha-Ahelelsunah/10.mp3" },
 { id: 250, title: "የአህሉሱንናህ ዐቂዳህ (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Akidha-Ahelelsunah/11.mp3" },
-{ id: 251, title: "የአህሉሱንናህ ዐቂዳህ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Akidha-Ahelelsunah/12.mp3" },
+{ id: 251, title: "የአህሉሱንናህ ዐቂዳህ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Akidha-Ahelelsunah/12.mp3" }
 ],
      "የቡሉጉል መራም ኪታብ ማብራሪያ": [
 { id: 336, title: "የቡሉጉል መራም ኪታብ ማብራሪያ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Bulug-almeram/1.mp3" },
 { id: 337, title: "የቡሉጉል መራም ኪታብ ማብራሪያ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Bulug-almeram/2.mp3" },
 { id: 338, title: "የቡሉጉል መራም ኪታብ ማብራሪያ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Bulug-almeram/3.mp3" },
 { id: 339, title: "የቡሉጉል መራም ኪታብ ማብራሪያ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Bulug-almeram/4.mp3" },
-{ id: 340, title: "የቡሉጉል መራም ኪታብ ማብራሪያ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Bulug-almeram/5.mp3" },
+{ id: 340, title: "የቡሉጉል መራም ኪታብ ማብራሪያ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Bulug-almeram/5.mp3" }
 ],
      "የቀልብ መድረቅ አደገኝነት፣ መንስኤና መፍትሄ": [
 { id: 289, title: "የቀልብ መድረቅ አደገኝነት መንስኤና መፍትሄ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Kaswetul-kaleb/1.mp3" },
@@ -286,7 +286,7 @@ const categoriesData = {
 { id: 293, title: "የቀልብ መድረቅ አደገኝነት መንስኤና መፍትሄ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Kaswetul-kaleb/5.mp3" },
 { id: 294, title: "የቀልብ መድረቅ አደገኝነት መንስኤና መፍትሄ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Kaswetul-kaleb/6.mp3" },
 { id: 295, title: "የቀልብ መድረቅ አደገኝነት መንስኤና መፍትሄ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Kaswetul-kaleb/7.mp3" },
-{ id: 296, title: "የቀልብ መድረቅ አደገኝነት መንስኤና መፍትሄ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Kaswetul-kaleb/8.mp3" },
+{ id: 296, title: "የቀልብ መድረቅ አደገኝነት መንስኤና መፍትሄ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Kaswetul-kaleb/8.mp3" }
 ], 
      "የላሚየቱ ኢብኑል ወርዲ ማብራሪያ":[
 { id: 323, title: "የላሚየቱ ኢብኑል ወርዲ ማብራሪያ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Lamyah-wardi/1.mp3" },
@@ -301,7 +301,7 @@ const categoriesData = {
 { id: 332, title: "የላሚየቱ ኢብኑል ወርዲ ማብራሪያ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Lamyah-wardi/10.mp3" },
 { id: 333, title: "የላሚየቱ ኢብኑል ወርዲ ማብራሪያ (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Lamyah-wardi/11.mp3" },
 { id: 334, title: "የላሚየቱ ኢብኑል ወርዲ ማብራሪያ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Lamyah-wardi/12.mp3" },
-{ id: 335, title: "የላሚየቱ ኢብኑል ወርዲ ማብራሪያ (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Lamyah-wardi/13.mp3" },
+{ id: 335, title: "የላሚየቱ ኢብኑል ወርዲ ማብራሪያ (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Lamyah-wardi/13.mp3" }
 ],  
      "ሰፊነቱ ሰላት":[
 { id: 348, title: "ሰፊነቱ ሰላት (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Safintu-salat/1.mp3" },
@@ -336,7 +336,8 @@ const categoriesData = {
 { id: 319, title: "የሰፊነቱን' ነጃት ማብራሪያ (21)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Safintu-nejat/21.mp3" },
 { id: 320, title: "የሰፊነቱን' ነጃት ማብራሪያ (22)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Safintu-nejat/22.mp3" },
 { id: 321, title: "የሰፊነቱን' ነጃት ማብራሪያ (23)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Safintu-nejat/23.mp3" },
-{ id: 322, title: "የሰፊነቱን' ነጃት ማብራሪያ (24)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Safintu-nejat/24.mp3" },], 
+{ id: 322, title: "የሰፊነቱን' ነጃት ማብራሪያ (24)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Safintu-nejat/24.mp3" }
+     ], 
      "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች": [
 { id: 341, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/1.mp3" },
 { id: 342, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/2.mp3" },
@@ -344,75 +345,66 @@ const categoriesData = {
 { id: 344, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/4.mp3" },
 { id: 345, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/5.mp3" },
 { id: 346, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/6.mp3" },
-{ id: 347, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/7.mp3" },
-]
+{ id: 347, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/7.mp3" }
+],
  
   },
     "አጫጭር ምክሮች በኡስታዝ አህመድ አደም": {
     "አጫጭር ምክሮች": []
   },
-  "ዚክርና ዱዓእ የመንፈስ ቀለብ": {
-  "ዚክርና ዱዓእ የመንፈስ ቀለብ": [
-    { id: 353, title: "🔅የዚክርና ዱዓእ ትሩፋትና ዚክርን ችላ የማለት መዘዞች 1", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/01.mp3" },
-    { id: 354, title: "🔅ወሳኝ ዚክርና ዱዓን የሚመለከቱ ህግጋት 2", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/02.mp3" },
-    { id: 355, title: "🔅ዚክርን በሚስበሐ መቁጠር  እንዴት ይታያል? 3", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/03.mp3" },
-    { id: 356, title: "🔅የማለዳ በረከት 4", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/04.mp3" },
-    { id: 357, title: "🔅ትክክለኛ የማለዳና የምሽት ዚክሮች፤ ከትሩፋታቸውና ትርጉማቸው 5", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/05.mp3" },
-    { id: 358, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ(1) 6", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/06.mp3" },
-    { id: 359, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ(2) 7", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/07.mp3" },
-    { id: 360, title: "💠የማለዳና የምሽት  ዚክሮች  ማብራሪያ(3) 8", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/08.mp3" },
-    { id: 361, title: "💠የማለዳና የምሽት ዚክሮች ማብራሪያ (4) 9", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/09.mp3" },
-    { id: 362, title: "💠የማለዳና የምሽት ዚክሮች ማብራሪያ(5) 10", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/10.mp3" },
-    { id: 363, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ (6) 11", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/11.mp3" },
-    { id: 364, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ (7) 12", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/12.mp3" },
-    { id: 365, title: "💠የማለዳና የምሽት  ዚክሮችማብራሪያ  (8) 13", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/13.mp3" },
-    { id: 366, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ  (9) 14", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/14.mp3" },
-    { id: 367, title: "💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (1) 15", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/15.mp3" },
-    { id: 368, title: "💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (2) 16", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/16.mp3" },
-    { id: 369, title: "💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (3) 17", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/17.mp3" },
-    { id: 370, title: " 💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (4) 18", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/18.mp3" },
-    { id: 371, title: "🔅ሌሊት በየመሃሉ ሲነቁ የሚደረግ ልዩ ዚክር እና ማታ ላይ የመፍራትና (5) 19", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/19.mp3" },
-    { id: 372, title: "🔅አስፈሪ(መጥፎ) ህልም ሲታይ የሚደረግ   ዚክርና ህልምን የሚመለከቱ ወሳኝ ነጥቦች 20", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/20.mp3" },
-    { id: 373, title: "🔅ከእንቅልፍ ሲነቃ የሚደረግ ዚክርና አደብ 21", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/21.mp3" },
-    { id: 374, title: "🔅የመፀዳጃ ቤት ዚክርና አደብ 22", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/22.mp3" },
-    { id: 375, title: "🔅የልብስ ዚክርና አደብ 23", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/23.mp3" },
-    { id: 376, title: "🔅ከቤት ሲወጣና ወደ ቤት ሲገባ የሚደረግ ዚክርና አደብ 24", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/24.mp3" },
-    { id: 377, title: "🔅የውዱእ ዚክርና ዱዓእ 25", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/25.mp3" },
-    { id: 378, title: "🔅ከአዛንና ከመስጂድ ጋር የተያያዙ ዚክርና አደቦች 26", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/26.mp3" },
-    { id: 379, title: "🔅የሰላት መክፈቻ ዱዓና ዚክር  27", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/27.mp3" },
-    { id: 380, title: "🔅ከሩኩዕና ከሱጁድ ጋር የተያያዙ ዱዓዎች 28", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/28.mp3" },
-    { id: 381, title: "🔅የተሸሁድ/ተሒያ ትርጉምና ተያያዥ ዱዓዎች 29", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/29.mp3" },
-    { id: 382, title: "🔅ከፈርድና ሱና ሰላቶች በኋላ  የሚደረጉ ዚክርና ዱዓዎች 30", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/30.mp3" },
-    { id: 383, title: "🔅የዊትር ሰላት አንገብጋቢነትና የቁኑት ዱዓእ ትርጉምና ህግጋት 31", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/31.mp3" },
-    { id: 384, title: "🔅የኢስቲኻራ ዚክርና ሰላት 32", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/32.mp3" },
-    { id: 385, title: "🔅የሰላተል-ጀናዛና ከቀብር ጋር የተያያዙ ዱዓዎች 33", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/33.mp3" },
-    { id: 386, title: "🔅ዝናብ ሲጠፋ፣ሲበዛ እና ንፋስና ነጎድጓድ ሲኖር የሚደረጉ ዚክሮች 34", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/34.mp3" },
-    { id: 387, title: "🔅በጭንቀትና በችግር ጊዜ የሚደረግ ዚክር 35", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/35.mp3" },
-    { id: 388, title: "🔅ከጠላት ጋር ሲገናኙ.. እና በአደጋ ጊዜ የሚደረግ ዚክር 36", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/36.mp3" },
-    { id: 389, title: "🔅እዳና ድህነትን የሚመለከቱ ዚክርና ዱዓዎች 37", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/37.mp3" },
-    { id: 390, title: "🔅ከህመምና ህሙማን ጋር ተያያዥ የሆኑ ዚክርና ዱዓዎች 38", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/38.mp3" },
-    { id: 391, title: "♻️ ከጉዞና መጓጓዣ ጋር ተያያዥ ዚክርና ዱዓዎች 39", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/39.mp3" },
-    { id: 392, title: "♻️ ከምግብና መጠጥ ጋር የተያያዙ ዚክርና ዱዓዎች 40", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/40.mp3" },
-    { id: 393, title: "🔅ከጋብቻና ከሕጻናት ጋር ተያያዥ የሆኑ ዚክርና ዱዓዎች 41", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/41.mp3" },
-    { id: 394, title: "🔹ከማስነጠስ ጋር የሚያያዙ ዚክርና አዳቦች 42", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/42.mp3" },
-    { id: 395, title: "🔹 በተለያዩ አጋጣሚዎች የሚባሉ 9 ዚክርና ዱዓዎች 43", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/43.mp3" }
-  ]
-},
-"የዛዱል መዓድ ፈታዋ": {
-  "የዛዱል መዓድ ፈታዋ": [
-    // እዚህ ላይ ትምህርቶቹን ያስገቡ
-  ]
-},
-"የጁሙዓ ኹጥባዎች": {
-  "የጁሙዓ ኹጥባዎች": [
-    // እዚህ ላይ ትምህርቶቹን ያስገቡ
-  ]
-},
-"ሙሓደራዎች": {
-  "ሙሓደራዎች": [
-    // እዚህ ላይ ትምህርቶቹን ያስገቡ
-  ]
-},
+  "የዛዱል መዓድ ፈታዋ": {
+    "የዛዱል መዓድ ፈታዋ (1)": [],
+    "የዛዱል መዓድ ፈታዋ2)": []
+  },
+  "የጁሙዓ ኹጥባዎች": {},
+  "ልዩ ወቅታዊ ትምህርት": {
+    "ዚክርና ዱዓእ": [{ id: 353, title: "🔅የዚክርና ዱዓእ ትሩፋትና ዚክርን ችላ የማለት መዘዞች 1", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/01.mp3" },
+{ id: 354, title: "🔅ወሳኝ ዚክርና ዱዓን የሚመለከቱ ህግጋት 2", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/02.mp3" },
+{ id: 355, title: "🔅ዚክርን በሚስበሐ መቁጠር  እንዴት ይታያል? 3", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/03.mp3" },
+{ id: 356, title: "🔅የማለዳ በረከት 4", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/04.mp3" },
+{ id: 357, title: "🔅ትክክለኛ የማለዳና የምሽት ዚክሮች፤ ከትሩፋታቸውና ትርጉማቸው 5", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/05.mp3" },
+{ id: 358, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ(1) 6", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/06.mp3" },
+{ id: 359, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ(2) 7", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/07.mp3" },
+{ id: 360, title: "💠የማለዳና የምሽት  ዚክሮች  ማብራሪያ(3) 8", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/08.mp3" },
+{ id: 361, title: "💠የማለዳና የምሽት ዚክሮች ማብራሪያ (4) 9", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/09.mp3" },
+{ id: 362, title: "💠የማለዳና የምሽት ዚክሮች ማብራሪያ(5) 10", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/10.mp3" },
+{ id: 363, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ (6) 11", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/11.mp3" },
+{ id: 364, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ (7) 12", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/12.mp3" },
+{ id: 365, title: "💠የማለዳና የምሽት  ዚክሮችማብራሪያ  (8) 13", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/13.mp3" },
+{ id: 366, title: "💠የማለዳና የምሽት  ዚክሮች ማብራሪያ  (9) 14", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/14.mp3" },
+{ id: 367, title: "💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (1) 15", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/15.mp3" },
+{ id: 368, title: "💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (2) 16", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/16.mp3" },
+{ id: 369, title: "💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (3) 17", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/17.mp3" },
+{ id: 370, title: " 💠በመኝታ(በእንቅልፍ)ጊዜ የሚደረግ ዚክር (4) 18", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/18.mp3" },
+{ id: 371, title: "🔅ሌሊት በየመሃሉ ሲነቁ የሚደረግ ልዩ ዚክር እና ማታ ላይ የመፍራትና (5) 19", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/19.mp3" },
+{ id: 372, title: "🔅አስፈሪ(መጥፎ) ህልም ሲታይ የሚደረግ   ዚክርና ህልምን የሚመለከቱ ወሳኝ ነጥቦች 20", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/20.mp3" },
+{ id: 373, title: "🔅ከእንቅልፍ ሲነቃ የሚደረግ ዚክርና አደብ 21", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/21.mp3" },
+{ id: 374, title: "🔅የመፀዳጃ ቤት ዚክርና አደብ 22", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/22.mp3" },
+{ id: 375, title: "🔅የልብስ ዚክርና አደብ 23", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/23.mp3" },
+{ id: 376, title: "🔅ከቤት ሲወጣና ወደ ቤት ሲገባ የሚደረግ ዚክርና አደብ 24", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/24.mp3" },
+{ id: 377, title: "🔅የውዱእ ዚክርና ዱዓእ 25", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/25.mp3" },
+{ id: 378, title: "🔅ከአዛንና ከመስጂድ ጋር የተያያዙ ዚክርና አደቦች 26", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/26.mp3" },
+{ id: 379, title: "🔅የሰላት መክፈቻ ዱዓና ዚክር  27", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/27.mp3" },
+{ id: 380, title: "🔅ከሩኩዕና ከሱጁድ ጋር የተያያዙ ዱዓዎች 28", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/28.mp3" },
+{ id: 381, title: "🔅የተሸሁድ/ተሒያ ትርጉምና ተያያዥ ዱዓዎች 29", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/29.mp3" },
+{ id: 382, title: "🔅ከፈርድና ሱና ሰላቶች በኋላ  የሚደረጉ ዚክርና ዱዓዎች 30", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/30.mp3" },
+{ id: 383, title: "🔅የዊትር ሰላት አንገብጋቢነትና የቁኑት ዱዓእ ትርጉምና ህግጋት 31", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/31.mp3" },
+{ id: 384, title: "🔅የኢስቲኻራ ዚክርና ሰላት 32", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/32.mp3" },
+{ id: 385, title: "🔅የሰላተል-ጀናዛና ከቀብር ጋር የተያያዙ ዱዓዎች 33", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/33.mp3" },
+{ id: 386, title: "🔅ዝናብ ሲጠፋ፣ሲበዛ እና ንፋስና ነጎድጓድ ሲኖር የሚደረጉ ዚክሮች 34", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/34.mp3" },
+{ id: 387, title: "🔅በጭንቀትና በችግር ጊዜ የሚደረግ ዚክር 35", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/35.mp3" },
+{ id: 388, title: "🔅ከጠላት ጋር ሲገናኙ.. እና በአደጋ ጊዜ የሚደረግ ዚክር 36", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/36.mp3" },
+{ id: 389, title: "🔅እዳና ድህነትን የሚመለከቱ ዚክርና ዱዓዎች 37", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/37.mp3" },
+{ id: 390, title: "🔅ከህመምና ህሙማን ጋር ተያያዥ የሆኑ ዚክርና ዱዓዎች 38", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/38.mp3" },
+{ id: 391, title: "♻️ ከጉዞና መጓጓዣ ጋር ተያያዥ ዚክርና ዱዓዎች 39", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/39.mp3" },
+{ id: 392, title: "♻️ ከምግብና መጠጥ ጋር የተያያዙ ዚክርና ዱዓዎች 40", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/40.mp3" },
+{ id: 393, title: "🔅ከጋብቻና ከሕጻናት ጋር ተያያዥ የሆኑ ዚክርና ዱዓዎች 41", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/41.mp3" },
+{ id: 394, title: "🔹ከማስነጠስ ጋር የሚያያዙ ዚክርና አዳቦች 42", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/42.mp3" },
+{ id: 395, title: "🔹 በተለያዩ አጋጣሚዎች የሚባሉ 9 ዚክርና ዱዓዎች 43", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/43.mp3" }
+                ],
+     "ሙሓደራዎች": []
+  }
+};
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);       // ዋና ምድብ (ဥပ. የቁርኣን ትምህርት)
