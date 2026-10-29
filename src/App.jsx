@@ -361,6 +361,7 @@ const categoriesData = {
     "የዛዱል መዓድ ፈታዋ2)": []
   },
   "የጁሙዓ ኹጥባዎች": {
+{ id: 426, title: "(7)✨ ተከተሉ አዲስ ነገር አትፍጠሩ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Jummah/7.aac" },
 { id: 396, title: "(11)✨ ዚክር ትርፋማው ንግድ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Jummah/11.mp3" },
 { id: 397, title: "(12) የሂጅራ አቆጣጠር አስፈላጊነትና ጠቀሜታዎች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Jummah/12.mp3" },
 { id: 398, title: "(13)✨ ደስተኛ ህይወት", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Jummah/13.mp3" },
