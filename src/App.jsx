@@ -710,9 +710,8 @@ const categoriesData = {
       { id: 393, title: "🔅ከጋብቻና ከሕጻናት ጋር ተያያዥ የሆኑ ዚክርና ዱዓዎች 41", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/41.mp3" },
       { id: 394, title: "🔹ከማስነጠስ ጋር የሚያያዙ ዚክርና አዳቦች 42", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/42.mp3" },
       { id: 395, title: "🔹 በተለያዩ አጋጣሚዎች የሚባሉ 9 ዚክርና ዱዓዎች 43", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/43.mp3" }
-    ]
-  },
-  "ሙሓደራዎች": ["ሙሓደራዎች": [
+    ],
+  "ሙሓደራዎች": [
   { id: 488, title: "የነብዩንና የሰሀቦችን ፈለግ መከተልና ትሩፋቱ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/01.mp3" },
   { id: 489, title: "ጋብቻ ከ ሀ እስከ ፐ በኡስታዝ አሕመድ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/02.mp3" },
   { id: 490, title: "ዘመድ ወዳጅን በሞት ላጣ ሰው የተሰጠ ምክር", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/03.mp3" },
