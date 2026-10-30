@@ -353,64 +353,217 @@ const categoriesData = {
       { id: 347, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/7.mp3" }
     ]
   },
-    "የፊቅህ ትምህርት": {
-    "ኪታቡል ፈራኢድ የውርስ ህግጋት" : [
-      
-    ],
-    "ኪታቡ ጧሃራ": [
-      
-    ],
-    "ኪታቡ ሶላት": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],
-    "ኪታቡ ዘካት": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],
-    "ኪታቡ ሲያም": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],
-    "ኪታቡል ሐጅ": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],
-    "ኪታቡል ቡዩዕ የመሸጥና የመለወጥ ህግጋት ": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],
-    "ኪታቡ ኒካሕ የጋብቻ ህግጋት": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],
-    "ኪታቡ ጠላቅ የፍች ህግጋት": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ], 
-    "ኪታቡ አጥዒኣም": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],  
-    "ኪታቡል አይማን ወንነዝር": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ],
-    "ኪታቡ አል ጂናያት": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ], 
-    "ኪታቡ አል ሑዱድ": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ], 
-     "ባቡል ሑክሙል ሙርተድ (ኢስላምን ትቶ የከፈረን/የካደን ሰው የሚመለከቱ ህግጋት": [
-      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
-      
-    ], 
-    "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች": [    
-    ]
-  },
+  "የፊቅህ ትምህርት": {
+  "ኪታቡ ጧሃራ": [
+    { id: 527, title: "ኪታቡ ጧሃራ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/01.mp3" },
+    { id: 528, title: "ኪታቡ ጧሃራ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/02.mp3" },
+    { id: 529, title: "ኪታቡ ጧሃራ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/03.mp3" },
+    { id: 530, title: "ኪታቡ ጧሃራ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/04.mp3" },
+    { id: 531, title: "ኪታቡ ጧሃራ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/05.mp3" },
+    { id: 532, title: "ኪታቡ ጧሃራ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/06.mp3" },
+    { id: 533, title: "ኪታቡ ጧሃራ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/07.mp3" },
+    { id: 534, title: "ኪታቡ ጧሃራ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/08.mp3" },
+    { id: 535, title: "ኪታቡ ጧሃራ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/09.mp3" },
+    { id: 536, title: "ኪታቡ ጧሃራ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/10.mp3" }
+  ],
+  "ኪታቡ ሶላት": [
+    { id: 537, title: "ኪታቡ ሶላት (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/11.mp3" },
+    { id: 538, title: "ኪታቡ ሶላት (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/12.mp3" },
+    { id: 539, title: "ኪታቡ ሶላት (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/13.mp3" },
+    { id: 540, title: "ኪታቡ ሶላት (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/14.mp3" },
+    { id: 541, title: "ኪታቡ ሶላት (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/15.mp3" },
+    { id: 542, title: "ኪታቡ ሶላት (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/16.mp3" },
+    { id: 543, title: "ኪታቡ ሶላት (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/17.mp3" },
+    { id: 544, title: "ኪታቡ ሶላት (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/18.mp3" },
+    { id: 545, title: "ኪታቡ ሶላት (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/19.mp3" },
+    { id: 546, title: "ኪታቡ ሶላት (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/20.mp3" },
+    { id: 547, title: "ኪታቡ ሶላት (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/21.mp3" },
+    { id: 548, title: "ኪታቡ ሶላት (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/22.mp3" },
+    { id: 549, title: "ኪታቡ ሶላት (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/23.mp3" },
+    { id: 550, title: "ኪታቡ ሶላት (14)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/24.mp3" },
+    { id: 551, title: "ኪታቡ ሶላት (15)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/25.mp3" },
+    { id: 552, title: "ኪታቡ ሶላት (16)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/26.mp3" },
+    { id: 553, title: "ኪታቡ ሶላት (17)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/27.mp3" },
+    { id: 554, title: "ኪታቡ ሶላት (18)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/28.mp3" },
+    { id: 555, title: "ኪታቡ ሶላት (19)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/29.mp3" },
+    { id: 556, title: "ኪታቡ ሶላት (20)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/30.mp3" }
+  ],
+  "ኪታቡ ዘካት": [
+    { id: 557, title: "ኪታቡ ዘካት (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/31.mp3" },
+    { id: 558, title: "ኪታቡ ዘካት (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/32.mp3" },
+    { id: 559, title: "ኪታቡ ዘካት (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/33.mp3" },
+    { id: 560, title: "ኪታቡ ዘካት (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/34.mp3" },
+    { id: 561, title: "ኪታቡ ዘካት (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/35.mp3" },
+    { id: 562, title: "ኪታቡ ዘካት (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/36.mp3" },
+    { id: 563, title: "ኪታቡ ዘካት (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/37.mp3" },
+    { id: 564, title: "ኪታቡ ዘካት (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/38.mp3" }
+  ],
+  "ኪታቡ ሲያም": [
+    { id: 565, title: "ኪታቡ ሲያም (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/39.mp3" },
+    { id: 566, title: "ኪታቡ ሲያም (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/40.mp3" },
+    { id: 567, title: "ኪታቡ ሲያም (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/41.mp3" },
+    { id: 568, title: "ኪታቡ ሲያም (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/42.mp3" },
+    { id: 569, title: "ኪታቡ ሲያም (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/43.mp3" },
+    { id: 570, title: "ኪታቡ ሲያም (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/44.mp3" },
+    { id: 571, title: "ኪታቡ ሲያም (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/45.mp3" },
+    { id: 572, title: "ኪታቡ ሲያም (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/46.mp3" },
+    { id: 573, title: "ኪታቡ ሲያም (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/47.mp3" },
+    { id: 574, title: "ኪታቡ ሲያም (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/48.mp3" }
+  ],
+  "ኪታቡል ሐጅ": [
+    { id: 575, title: "ኪታቡል ሐጅ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/49.mp3" },
+    { id: 576, title: "ኪታቡል ሐጅ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/50.mp3" },
+    { id: 577, title: "ኪታቡል ሐጅ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/51.mp3" },
+    { id: 578, title: "ኪታቡል ሐጅ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/52.mp3" },
+    { id: 579, title: "ኪታቡል ሐጅ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/53.mp3" },
+    { id: 580, title: "ኪታቡል ሐጅ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/54.mp3" },
+    { id: 581, title: "ኪታቡል ሐጅ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/55.mp3" },
+    { id: 582, title: "ኪታቡል ሐጅ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/56.mp3" },
+    { id: 583, title: "ኪታቡል ሐጅ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/57.mp3" },
+    { id: 584, title: "ኪታቡል ሐጅ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/58.mp3" },
+    { id: 585, title: "ኪታቡል ሐጅ (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/59.mp3" },
+    { id: 586, title: "ኪታቡል ሐጅ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/60.mp3" },
+    { id: 587, title: "ኪታቡል ሐጅ (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/61.mp3" },
+    { id: 588, title: "ኪታቡል ሐጅ (14)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/62.mp3" },
+    { id: 589, title: "ኪታቡል ሐጅ (15)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/63.mp3" }
+  ],
+  "ኪታቡል ቡዩዕ (የመሸጥና የመለወጥ ህግጋት)": [
+    { id: 590, title: "ኪታቡል ቡዩዕ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/64.mp3" },
+    { id: 591, title: "ኪታቡል ቡዩዕ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/65.mp3" },
+    { id: 592, title: "ኪታቡል ቡዩዕ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/66.mp3" },
+    { id: 593, title: "ኪታቡል ቡዩዕ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/67.mp3" },
+    { id: 594, title: "ኪታቡል ቡዩዕ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/68.mp3" },
+    { id: 595, title: "ኪታቡል ቡዩዕ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/69.mp3" },
+    { id: 596, title: "ኪታቡል ቡዩዕ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/70.mp3" },
+    { id: 597, title: "ኪታቡል ቡዩዕ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/71.mp3" },
+    { id: 598, title: "ኪታቡል ቡዩዕ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/72.mp3" },
+    { id: 599, title: "ኪታቡል ቡዩዕ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/73.mp3" },
+    { id: 600, title: "ኪታቡል ቡዩዕ (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/74.mp3" },
+    { id: 601, title: "ኪታቡል ቡዩዕ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/75.mp3" },
+    { id: 602, title: "ኪታቡል ቡዩዕ (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/76.mp3" },
+    { id: 603, title: "ኪታቡል ቡዩዕ (14)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/77.mp3" },
+    { id: 604, title: "ኪታቡል ቡዩዕ (15)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/78.mp3" },
+    { id: 605, title: "ኪታቡል ቡዩዕ (16)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/79.mp3" },
+    { id: 606, title: "ኪታቡል ቡዩዕ (17)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/80.mp3" },
+    { id: 607, title: "ኪታቡል ቡዩዕ (18)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/81.mp3" },
+    { id: 608, title: "ኪታቡል ቡዩዕ (19)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/82.mp3" },
+    { id: 609, title: "ኪታቡል ቡዩዕ (20)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/83.mp3" },
+    { id: 610, title: "ኪታቡል ቡዩዕ (21)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/84.mp3" },
+    { id: 611, title: "ኪታቡል ቡዩዕ (22)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/85.mp3" },
+    { id: 612, title: "ኪታቡል ቡዩዕ (23)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/86.mp3" },
+    { id: 613, title: "ኪታቡል ቡዩዕ (24)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/87.mp3" },
+    { id: 614, title: "ኪታቡል ቡዩዕ (25)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/88.mp3" },
+    { id: 615, title: "ኪታቡል ቡዩዕ (26)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/89.mp3" },
+    { id: 616, title: "ኪታቡል ቡዩዕ (27)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/90.mp3" }
+  ],
+  "ኪታቡል ፈራኢድ (የውርስ ህግጋት)": [
+    { id: 617, title: "ኪታቡል ፈራኢድ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/91.mp3" },
+    { id: 618, title: "ኪታቡል ፈራኢድ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/92.mp3" },
+    { id: 619, title: "ኪታቡል ፈራኢድ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/93.mp3" },
+    { id: 620, title: "ኪታቡል ፈራኢድ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/94.mp3" },
+    { id: 621, title: "ኪታቡል ፈራኢድ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/95.mp3" },
+    { id: 622, title: "ኪታቡል ፈራኢድ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/96.mp3" },
+    { id: 623, title: "ኪታቡል ፈራኢድ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/97.mp3" },
+    { id: 624, title: "ኪታቡል ፈራኢድ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/98.mp3" },
+    { id: 625, title: "ኪታቡል ፈራኢድ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/99.mp3" },
+    { id: 626, title: "ኪታቡል ፈራኢድ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/100.mp3" },
+    { id: 627, title: "ኪታቡል ፈራኢድ (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/101.mp3" },
+    { id: 628, title: "ኪታቡል ፈራኢድ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/102.mp3" },
+    { id: 629, title: "ኪታቡል ፈራኢድ (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/103.mp3" },
+    { id: 630, title: "ኪታቡል ፈራኢድ (14)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/104.mp3" },
+    { id: 631, title: "ኪታቡል ፈራኢድ (15)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/105.mp3" },
+    { id: 632, title: "ኪታቡል ፈራኢድ (16)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/106.mp3" },
+    { id: 633, title: "ኪታቡል ፈራኢድ (17)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/107.mp3" }
+  ],
+  "ኪታቡ ኒካሕ (የጋብቻ ህግጋት)": [
+    { id: 634, title: "ኪታቡ ኒካሕ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/109.mp3" },
+    { id: 635, title: "ኪታቡ ኒካሕ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/110.mp3" },
+    { id: 636, title: "ኪታቡ ኒካሕ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/111.mp3" },
+    { id: 637, title: "ኪታቡ ኒካሕ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/112.mp3" },
+    { id: 638, title: "ኪታቡ ኒካሕ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/113.mp3" },
+    { id: 639, title: "ኪታቡ ኒካሕ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/114.mp3" },
+    { id: 640, title: "ኪታቡ ኒካሕ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/115.mp3" },
+    { id: 641, title: "ኪታቡ ኒካሕ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/116.mp3" },
+    { id: 642, title: "ኪታቡ ኒካሕ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/117.mp3" },
+    { id: 643, title: "ኪታቡ ኒካሕ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/118.mp3" },
+    { id: 644, title: "ኪታቡ ኒካሕ (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/119.mp3" },
+    { id: 645, title: "ኪታቡ ኒካሕ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/120.mp3" },
+    { id: 646, title: "ኪታቡ ኒካሕ (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/121.mp3" },
+    { id: 647, title: "ኪታቡ ኒካሕ (14)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/122.mp3" },
+    { id: 648, title: "ኪታቡ ኒካሕ (15)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/123.mp3" },
+    { id: 649, title: "ኪታቡ ኒካሕ (16)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/124.mp3" },
+    { id: 650, title: "ኪታቡ ኒካሕ (17)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/125.mp3" },
+    { id: 651, title: "ኪታቡ ኒካሕ (18)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/126.mp3" },
+    { id: 652, title: "ኪታቡ ኒካሕ (19)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/127.mp3" },
+    { id: 653, title: "ኪታቡ ኒካሕ (20)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/128.mp3" },
+    { id: 654, title: "ኪታቡ ኒካሕ (21)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/129.mp3" }
+  ],
+  "ኪታቡ ጠላቅ (የፍች ህግጋት)": [
+    { id: 655, title: "ኪታቡ ጠላቅ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/130.mp3" },
+    { id: 656, title: "ኪታቡ ጠላቅ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/131.mp3" },
+    { id: 657, title: "ኪታቡ ጠላቅ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/132.mp3" },
+    { id: 658, title: "ኪታቡ ጠላቅ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/133.mp3" },
+    { id: 659, title: "ኪታቡ ጠላቅ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/134.mp3" },
+    { id: 660, title: "ኪታቡ ጠላቅ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/135.mp3" },
+    { id: 661, title: "ኪታቡ ጠላቅ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/136.mp3" },
+    { id: 662, title: "ኪታቡ ጠላቅ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/137.mp3" },
+    { id: 663, title: "ኪታቡ ጠላቅ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/138.mp3" },
+    { id: 664, title: "ኪታቡ ጠላቅ (10)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/139.mp3" },
+    { id: 665, title: "ኪታቡ ጠላቅ (11)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/140.mp3" },
+    { id: 666, title: "ኪታቡ ጠላቅ (12)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/141.mp3" },
+    { id: 667, title: "ኪታቡ ጠላቅ (13)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/142.mp3" },
+    { id: 668, title: "ኪታቡ ጠላቅ (14)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/143.mp3" },
+    { id: 669, title: "ኪታቡ ጠላቅ (15)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/144.mp3" },
+    { id: 670, title: "ኪታቡ ጠላቅ (16)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/145.mp3" },
+    { id: 671, title: "ኪታቡ ጠላቅ (17)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/146.mp3" },
+    { id: 672, title: "ኪታቡ ጠላቅ (18)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/147.mp3" }
+  ],
+  "ኪታቡ አጥዒኣም (ኪታቡል አጥዒማ)": [
+    { id: 673, title: "ኪታቡ አጥዒኣም (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/149.mp3" },
+    { id: 674, title: "ኪታቡ አጥዒኣም (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/150.mp3" },
+    { id: 675, title: "ኪታቡ አጥዒኣም (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/151.mp3" },
+    { id: 676, title: "ኪታቡ አጥዒኣም (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/152.mp3" }
+  ],
+  "ኪታቡል አይማን ወንነዝር": [
+    { id: 677, title: "ኪታቡል አይማን ወንነዝር (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/153.mp3" },
+    { id: 678, title: "ኪታቡል አይማን ወንነዝር (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/154.mp3" },
+    { id: 679, title: "ኪታቡል አይማን ወንነዝር (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/155.mp3" },
+    { id: 680, title: "ኪታቡል አይማን ወንነዝር (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/156.mp3" },
+    { id: 681, title: "ኪታቡል አይማን ወንነዝር (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/157.mp3" },
+    { id: 682, title: "ኪታቡል አይማን ወንነዝር (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/158.mp3" },
+    { id: 683, title: "ኪታቡል አይማን ወንነዝር (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/159.mp3" },
+    { id: 684, title: "ኪታቡል አይማን ወንነዝር (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/160.mp3" },
+    { id: 685, title: "ኪታቡል አይማን ወንነዝር (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/161.mp3" }
+  ],
+  "ኪታቡ አል ጂና": [
+    { id: 686, title: "ኪታቡ አል ጂና (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/162.mp3" },
+    { id: 687, title: "ኪታቡ አል ጂና (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/163.mp3" },
+    { id: 688, title: "ኪታቡ አል ጂና (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/164.mp3" },
+    { id: 689, title: "ኪታቡ አል ጂና (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/165.mp3" },
+    { id: 690, title: "ኪታቡ አል ጂና (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/166.mp3" },
+    { id: 691, title: "ኪታቡ አል ጂና (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/167.mp3" }
+  ],
+  "ኪታቡ አል ሑዱድ": [
+    { id: 692, title: "ኪታቡ አል ሑዱድ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/168.mp3" },
+    { id: 693, title: "ኪታቡ አል ሑዱድ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/169.mp3" },
+    { id: 694, title: "ኪታቡ አል ሑዱድ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/170.mp3" },
+    { id: 695, title: "ኪታቡ አል ሑዱድ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/171.mp3" },
+    { id: 696, title: "ኪታቡ አል ሑዱድ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/172.mp3" },
+    { id: 697, title: "ኪታቡ አል ሑዱድ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/173.mp3" },
+    { id: 698, title: "ኪታቡ አል ሑዱድ (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/174.mp3" },
+    { id: 699, title: "ኪታቡ አል ሑዱድ (8)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/175.mp3" },
+    { id: 700, title: "ኪታቡ አል ሑዱድ (9)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/176.mp3" }
+  ],
+  "ባቡል ሑክሙል ሙርተድ (ኢስላምን ትቶ የከፈረን/የካደን ሰው የሚመለከቱ ህግጋት)": [
+    { id: 701, title: "ባቡል ሑክሙል ሙርተድ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/177.mp3" },
+    { id: 702, title: "ባቡል ሑክሙል ሙርተድ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/178.mp3" }
+  ],
+  "ኪታብ አል ቀዷእ ወል በይናት (የክስና የፍርድ ሂደት)": [
+    { id: 703, title: "ኪታብ አል ቀዷእ ወል በይናት (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/179.mp3" },
+    { id: 704, title: "ኪታብ አል ቀዷእ ወል በይናት (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/180.mp3" },
+    { id: 705, title: "ኪታብ አል ቀዷእ ወል በይናት (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Fikhi/181.mp3" }
+  ]
+},
   "አጫጭር ምክሮች በኡስታዝ አህመድ አደም": {
     "አጫጭር ምክሮች": []
   },
