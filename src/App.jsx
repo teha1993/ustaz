@@ -353,6 +353,64 @@ const categoriesData = {
       { id: 347, title: "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች (7)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Shaher-sader/7.mp3" }
     ]
   },
+    "የፊቅህ ትምህርት": {
+    "ኪታቡል ፈራኢድ የውርስ ህግጋት" : [
+      
+    ],
+    "ኪታቡ ጧሃራ": [
+      
+    ],
+    "ኪታቡ ሶላት": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],
+    "ኪታቡ ዘካት": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],
+    "ኪታቡ ሲያም": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],
+    "ኪታቡል ሐጅ": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],
+    "ኪታቡል ቡዩዕ የመሸጥና የመለወጥ ህግጋት ": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],
+    "ኪታቡ ኒካሕ የጋብቻ ህግጋት": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],
+    "ኪታቡ ጠላቅ የፍች ህግጋት": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ], 
+    "ኪታቡ አጥዒኣም": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],  
+    "ኪታቡል አይማን ወንነዝር": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ],
+    "ኪታቡ አል ጂናያት": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ], 
+    "ኪታቡ አል ሑዱድ": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ], 
+     "ባቡል ሑክሙል ሙርተድ (ኢስላምን ትቶ የከፈረን/የካደን ሰው የሚመለከቱ ህግጋት": [
+      // 👇 PASTE YOUR AUDIO OBJECTS HERE 👇
+      
+    ], 
+    "የልብ መስፋትና መረጋጋትን ለማግኘት የሚረዱ ነገሮች": [    
+    ]
+  },
   "አጫጭር ምክሮች በኡስታዝ አህመድ አደም": {
     "አጫጭር ምክሮች": []
   },
