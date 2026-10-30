@@ -501,7 +501,48 @@ const categoriesData = {
       { id: 395, title: "🔹 በተለያዩ አጋጣሚዎች የሚባሉ 9 ዚክርና ዱዓዎች 43", audioUrl: "https://github.com/teha1993/ustaz/releases/download/ziker-and-dua/43.mp3" }
     ]
   },
-  "ሙሓደራዎች": []
+  "ሙሓደራዎች": [
+  { id: 488, title: "የነብዩንና የሰሀቦችን ፈለግ መከተልና ትሩፋቱ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/01.mp3" },
+  { id: 489, title: "ጋብቻ ከ ሀ እስከ ፐ በኡስታዝ አሕመድ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/02.mp3" },
+  { id: 490, title: "ዘመድ ወዳጅን በሞት ላጣ ሰው የተሰጠ ምክር", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/03.mp3" },
+  { id: 491, title: "አል ሂጅብ በኡስታዝ አህመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/04.mp3" },
+  { id: 492, title: "የልብ ቅርፀን መጠቀም በኡስታዝ አህመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/05.mp3" },
+  { id: 493, title: "በዱን ላይ ለመፅናት", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/06.mp3" },
+  { id: 494, title: "ጥቀት ምክሮች ለሙስሊም አህቶች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/07.mp3" },
+  { id: 495, title: "ተቀዋ በኡስታዝ አሕመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/08.mp3" },
+  { id: 496, title: "ከአንድ ባለይ ማግባት ለምን አስፈለገ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/09.mp3" },
+  { id: 497, title: "ከአንድ ባለይ ማግባት ለምን አስፈለገ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/10.mp3" },
+  { id: 498, title: "ከአንድ ባለይ ማግባት ለምን አስፈለገ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/11.mp3" },
+  { id: 499, title: "ከአንድ ባለይ ማግባት ለምን አስፈለገ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/12.mp3" },
+  { id: 500, title: "ከአንድ ባለይ ማግባት ለምን አስፈለገ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/13.mp3" },
+  { id: 501, title: "ጠቂት ምክሮች ከስድት ለተመላሱ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/14.mp3" },
+  { id: 502, title: "ኢዕትካፍና ህጋቱ በኡስታዝ አሕመድ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/15.mp3" },
+  { id: 503, title: "ድል የባለይነት ማድረጊያ መንገዶች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/16.mp3" },
+  { id: 504, title: "እምነትን ማስተካከልና አንጋብቻበነቱ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/17.mp3" },
+  { id: 505, title: "እምነትን ማስተካከልና አንጋብቻበነቱ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/18.mp3" },
+  { id: 506, title: "እምነትን ማስተካከልና አንጋብቻበነቱ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/19.mp3" },
+  { id: 507, title: "እምነትን ማስተካከልና አንጋብቻበነቱ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/20.mp3" },
+  { id: 508, title: "ሩቃ በቁርአን መፈወስ ህግና ስርዓት", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/21.mp3" },
+  { id: 509, title: "ጥቂት ምክሮች ሩቃ ለሚፈልጉና ለሩቃ አድራጊዎች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/22.mp3" },
+  { id: 510, title: "የሐጅና ዑምራ አፈፃፀም ህግጋት (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/23.mp3" },
+  { id: 511, title: "የሐጅና ዑምራ ህግውትና አፈፃፀም (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/24.mp3" },
+  { id: 512, title: "የሐጅና ዑምራ ህግውትና አፈፃፀም (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/25.mp3" },
+  { id: 513, title: "የሕይወት ፍተና በሙእሚን እይታ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/26.mp3" },
+  { id: 514, title: "አንዘርቱከሙንናር (እሳትን አስጠንቅቂያቸኋለሁ)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/27.mp3" },
+  { id: 515, title: "ሴቶች በጀነት በኡስታዝ አህመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/28.mp3" },
+  { id: 516, title: "ጥቀት ምክሮች ለአካዳሚ ተማሪዎች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/29.mp3" },
+  { id: 517, title: "መውሊድን የጃምሩ ሰዎች ታሪክ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/30.mp3" },
+  { id: 518, title: "አል አቅሷ የማን ነው", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/31.mp3" },
+  { id: 519, title: "ለልጅ ምን አይነት ስም ላውጣ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/32.mp3" },
+  { id: 520, title: "ጥቂት ስለ ተውሒድና አይነቶቹ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/33.mp3" },
+  { id: 521, title: "ዲንና ኡማውን ለመርዳት", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/34.mp3" },
+  { id: 522, title: "ሱናን አንከተል በኡስታዝ አሕመድ", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/35.mp3" },
+  { id: 523, title: "ፊልምና ድራማን ማን ጀመራቸው (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/36.mp3" },
+  { id: 524, title: "ፊልምና ድራማን ማን ጀመራቸው (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/37.mp3" },
+
+  { id: 525, title: "ሙሓደራ (38)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/38.mp3" },
+  { id: 526, title: "ሙሓደራ (39)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/39.mp3" }
+]
 };
 
 // Helper to format seconds to MM:SS
