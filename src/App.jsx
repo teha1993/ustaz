@@ -5,7 +5,7 @@ import {
   Heart, FolderOpen
 } from 'lucide-react';
 
-// ሙሉው የምድቦች እና የንዑስ ምድቦች መዋቅር (Data Structure)
+// 👇 PASTE YOUR ENTIRE DATA OBJECT HERE (Keep it exactly as you have it) 👇
 const categoriesData = {  
   "የቁርኣን ትምህርት": {
     "ለመሐፈዝ የሚረዱ ነገሮች": [
@@ -822,6 +822,7 @@ const categoriesData = {
 ]
 };
 
+
 // Helper to format seconds to MM:SS
 const formatTime = (time) => {
   if (isNaN(time)) return "0:00";
@@ -831,8 +832,9 @@ const formatTime = (time) => {
 };
 
 export default function App() {
-  const [selectedCategory, setSelectedCategory] = useState(null);       
-  const [selectedSubCategory, setSelectedSubCategory] = useState(null); 
+  // 🚀 NEW DYNAMIC PATH NAVIGATION (Handles infinite folder depth)
+  const [currentPath, setCurrentPath] = useState([]); 
+  
   const [currentLesson, setCurrentLesson] = useState(null);             
   const [isPlaying, setIsPlaying] = useState(false);                    
   const [searchQuery, setSearchQuery] = useState("");                   
@@ -845,17 +847,20 @@ export default function App() {
   
   const audioRef = useRef(null);
 
-  // Flatten all lessons for search
+  // Helper to get the current folder object
+  const currentData = currentPath.reduce((acc, curr) => acc && acc[curr], categoriesData);
+  const isAudioList = Array.isArray(currentData);
+
+  // Flatten all lessons for search (Deep Search)
   const allLessons = [];
-  Object.values(categoriesData).forEach(cat => {
-    if (Array.isArray(cat)) {
-      cat.forEach(l => allLessons.push(l));
-    } else {
-      Object.values(cat).forEach(sub => {
-        sub.forEach(l => allLessons.push(l));
-      });
+  const extractLessons = (obj) => {
+    if (Array.isArray(obj)) {
+      obj.forEach(l => allLessons.push(l));
+    } else if (typeof obj === 'object' && obj !== null) {
+      Object.values(obj).forEach(extractLessons);
     }
-  });
+  };
+  extractLessons(categoriesData);
 
   const filteredLessons = searchQuery 
     ? allLessons.filter(l => l.title.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -863,10 +868,8 @@ export default function App() {
 
   // Get current queue
   let currentQueue = allLessons;
-  if (selectedCategory && selectedSubCategory) {
-    currentQueue = categoriesData[selectedCategory][selectedSubCategory];
-  } else if (selectedCategory && Array.isArray(categoriesData[selectedCategory])) {
-    currentQueue = categoriesData[selectedCategory];
+  if (currentPath.length > 0 && isAudioList) {
+    currentQueue = currentData;
   }
 
   const playLesson = (lesson) => {
@@ -927,30 +930,6 @@ export default function App() {
     setCurrentTime(time);
   };
 
-  const goToFolder = () => {
-    setIsPlayerOpen(false);
-    if (currentLesson && selectedCategory && selectedSubCategory) {
-       // Already there
-    } else {
-       for (const cat in categoriesData) {
-         if (Array.isArray(categoriesData[cat])) {
-           if (categoriesData[cat].some(l => l.audioUrl === currentLesson.audioUrl)) {
-             setSelectedCategory(cat);
-             return;
-           }
-         } else {
-           for (const sub in categoriesData[cat]) {
-             if (categoriesData[cat][sub].some(l => l.audioUrl === currentLesson.audioUrl)) {
-               setSelectedCategory(cat);
-               setSelectedSubCategory(sub);
-               return;
-             }
-           }
-         }
-       }
-    }
-  };
-
   return (
     <div className="max-w-md mx-auto min-h-screen bg-[#062c20] text-white pb-32 font-sans relative overflow-hidden">
       
@@ -959,7 +938,7 @@ export default function App() {
         <div className="flex justify-between items-center mb-2">
           <h1 className="text-xl font-bold tracking-wide">Ustaz Ahmed Adem</h1>
           <button 
-            onClick={() => { setSelectedCategory(null); setSelectedSubCategory(null); setSearchQuery(""); }}
+            onClick={() => { setCurrentPath([]); setSearchQuery(""); }}
             className="bg-[#0f5c44] p-2 rounded-full text-emerald-300 hover:text-white transition"
           >
             <Home size={18} />
@@ -994,37 +973,20 @@ export default function App() {
               )) : <p className="text-xs text-emerald-400/70 text-center py-10">ምንም ትምህርት አልተገኘም</p>}
             </div>
           </div>
-        ) : selectedSubCategory ? (
+        ) : currentPath.length > 0 ? (
+          /* DYNAMIC LIST/GRID VIEW */
           <div>
-            <button onClick={() => setSelectedSubCategory(null)} className="flex items-center gap-2 text-emerald-300 text-sm mb-4 font-medium hover:text-white">
-              <ArrowLeft size={18} /> ወደ ንዑስ ምድቦች ተመለስ
-            </button>
-            <h2 className="text-lg font-bold mb-4 text-emerald-100">{selectedSubCategory}</h2>
-            <div className="space-y-3">
-              {categoriesData[selectedCategory][selectedSubCategory].map(lesson => (
-                <div key={lesson.id} className="bg-[#0b3b2d] p-4 rounded-2xl flex items-center justify-between border border-emerald-800/60 shadow">
-                  <div className="flex-1 pr-3"><span className="text-sm font-medium">{lesson.title}</span></div>
-                  <button onClick={() => playLesson(lesson)} className="text-emerald-400 hover:text-emerald-300">
-                    {currentLesson?.audioUrl === lesson.audioUrl && isPlaying ? <PauseCircle size={32} /> : <PlayCircle size={32} />}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : selectedCategory ? (
-          <div>
-            <button onClick={() => setSelectedCategory(null)} className="flex items-center gap-2 text-emerald-300 text-sm mb-4 font-medium hover:text-white">
-              <ArrowLeft size={18} /> ወደ ዋና ምድቦች ተመለስ
+            <button onClick={() => setCurrentPath(currentPath.slice(0, -1))} className="flex items-center gap-2 text-emerald-300 text-sm mb-4 font-medium hover:text-white">
+              <ArrowLeft size={18} /> ወደ ኋላ ተመለስ
             </button>
             <div className="mb-4 bg-[#084532] p-4 rounded-2xl border border-emerald-700/50">
-              <h2 className="text-base font-bold">{selectedCategory}</h2>
-              <p className="text-xs text-emerald-300/70 mt-1">ንዑስ ምድቦችን ይምረጡ</p>
+              <h2 className="text-base font-bold">{currentPath[currentPath.length - 1]}</h2>
+              <p className="text-xs text-emerald-300/70 mt-1">{isAudioList ? 'ትምህርቶች' : 'ንዑስ ምድቦችን ይምረጡ'}</p>
             </div>
 
-            {/* SMART CHECK: If the category is an Array (like Jummah), show the audio list immediately */}
-            {Array.isArray(categoriesData[selectedCategory]) ? (
+            {isAudioList ? (
               <div className="space-y-3">
-                {categoriesData[selectedCategory].map(lesson => (
+                {currentData.map(lesson => (
                   <div key={lesson.id} className="bg-[#0b3b2d] p-4 rounded-2xl flex items-center justify-between border border-emerald-800/60 shadow">
                     <div className="flex-1 pr-3"><span className="text-sm font-medium">{lesson.title}</span></div>
                     <button onClick={() => playLesson(lesson)} className="text-emerald-400 hover:text-emerald-300">
@@ -1034,17 +996,29 @@ export default function App() {
                 ))}
               </div>
             ) : (
-              /* Otherwise show the subfolder grid */
               <div className="space-y-3">
-                {Object.keys(categoriesData[selectedCategory]).map(subCat => {
-                  const count = categoriesData[selectedCategory][subCat].length;
+                {Object.keys(currentData).map(subCat => {
+                  const child = currentData[subCat];
+                  let countText = "";
+                  if (Array.isArray(child)) {
+                    countText = `${child.length} ትምህርቶች`;
+                  } else {
+                    let total = 0;
+                    const countAll = (obj) => {
+                      if (Array.isArray(obj)) total += obj.length;
+                      else if (typeof obj === 'object') Object.values(obj).forEach(countAll);
+                    };
+                    countAll(child);
+                    countText = `${Object.keys(child).length} ንዑስ ምድቦች • ${total} ትምህርቶች`;
+                  }
+
                   return (
-                    <div key={subCat} onClick={() => setSelectedSubCategory(subCat)}
+                    <div key={subCat} onClick={() => setCurrentPath([...currentPath, subCat])}
                       className="bg-[#0b3b2d] p-4 rounded-2xl border border-emerald-800/60 cursor-pointer hover:border-emerald-500 transition shadow flex items-center justify-between"
                     >
                       <div>
                         <h3 className="text-sm font-bold">{subCat}</h3>
-                        <p className="text-[11px] text-emerald-300/70 mt-1">{count} ትምህርቶች</p>
+                        <p className="text-[11px] text-emerald-300/70 mt-1">{countText}</p>
                       </div>
                       <BookOpen className="text-emerald-400" size={20} />
                     </div>
@@ -1054,25 +1028,27 @@ export default function App() {
             )}
           </div>
         ) : (
+          /* MAIN CATEGORIES GRID */
           <div>
             <h2 className="text-sm font-semibold text-emerald-300/80 mb-3">ምድቦች</h2>
             <div className="grid grid-cols-2 gap-4">
               {Object.keys(categoriesData).map(catName => {
-                const isArray = Array.isArray(categoriesData[catName]);
-                const subCatsCount = isArray ? 1 : Object.keys(categoriesData[catName]).length;
-                const totalLessonsInCat = isArray 
-                  ? categoriesData[catName].length 
-                  : Object.values(categoriesData[catName]).flat().length;
-                  
+                let totalLessonsInCat = 0;
+                const countAll = (obj) => {
+                  if (Array.isArray(obj)) totalLessonsInCat += obj.length;
+                  else if (typeof obj === 'object') Object.values(obj).forEach(countAll);
+                };
+                countAll(categoriesData[catName]);
+
                 return (
-                  <div key={catName} onClick={() => setSelectedCategory(catName)}
+                  <div key={catName} onClick={() => setCurrentPath([catName])}
                     className="bg-[#0b3b2d] p-4 rounded-3xl border border-emerald-800/60 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-36"
                   >
                     <BookOpen className="text-emerald-400" size={26} />
                     <div>
                       <h3 className="text-sm font-bold leading-snug">{catName}</h3>
                       <p className="text-[11px] text-emerald-300/70 mt-1">
-                        {isArray ? `${totalLessonsInCat} ትምህርቶች` : `${subCatsCount} ንዑስ ምድቦች • ${totalLessonsInCat} ትምህርቶች`}
+                        {totalLessonsInCat} ትምህርቶች
                       </p>
                     </div>
                   </div>
@@ -1104,16 +1080,14 @@ export default function App() {
         <div className="fixed inset-0 bg-[#041f17]/95 backdrop-blur-md z-50 flex flex-col transition-all duration-300">
           <audio ref={audioRef} src={currentLesson.audioUrl} autoPlay onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
 
-          {/* Top Bar with Minimize Button */}
           <div className="flex justify-between items-center p-6 text-emerald-300">
             <button onClick={() => setIsPlayerOpen(false)} className="p-2 bg-[#0b3b2d] rounded-full hover:bg-emerald-800 transition">
               <ChevronDown size={24} />
             </button>
             <span className="text-xs font-semibold uppercase tracking-widest text-emerald-400">Now Playing</span>
-            <div className="w-10"></div> {/* Spacer */}
+            <div className="w-10"></div>
           </div>
 
-          {/* Track Info */}
           <div className="flex-1 flex flex-col items-center justify-center px-8 text-center mt-[-40px]">
             <div className="w-48 h-48 bg-gradient-to-br from-emerald-600 to-emerald-900 rounded-3xl shadow-2xl flex items-center justify-center mb-8 relative">
                <ListMusic size={64} className="text-emerald-200/50" />
@@ -1122,10 +1096,7 @@ export default function App() {
             <p className="text-sm text-emerald-400">Ustaz Ahmed Adem</p>
           </div>
 
-          {/* Controls Area */}
           <div className="p-8 pb-12 bg-[#062c20] rounded-t-[40px] shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-            
-            {/* Seek Bar */}
             <div className="mb-8">
               <input type="range" min="0" max={duration || 0} value={currentTime} onChange={handleSeek}
                 className="w-full h-1 bg-[#0b3b2d] rounded-lg appearance-none cursor-pointer accent-emerald-400"
@@ -1136,7 +1107,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Playback Controls */}
             <div className="flex items-center justify-between mb-8 px-2">
               <button onClick={handlePrevious} className="text-emerald-200 hover:text-white transition">
                 <SkipBack size={32} />
@@ -1161,7 +1131,6 @@ export default function App() {
               </button>
             </div>
 
-            {/* Bottom Actions (Queue, Heart, Folder) */}
             <div className="flex items-center justify-between px-6 pt-4 border-t border-[#0b3b2d]">
               <button onClick={() => setShowQueue(!showQueue)} className={`flex flex-col items-center ${showQueue ? 'text-emerald-400' : 'text-emerald-600 hover:text-emerald-400'} transition`}>
                 <ListMusic size={24} />
@@ -1171,11 +1140,10 @@ export default function App() {
                 <Heart size={24} />
               </button>
 
-              <button onClick={goToFolder} className="flex flex-col items-center text-emerald-600 hover:text-emerald-400 transition">
+              <button onClick={() => setIsPlayerOpen(false)} className="flex flex-col items-center text-emerald-600 hover:text-emerald-400 transition">
                 <FolderOpen size={24} />
               </button>
             </div>
-
           </div>
         </div>
       )}
@@ -1207,4 +1175,4 @@ export default function App() {
       )}
     </div>
   );
-}
+  }
