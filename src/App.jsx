@@ -2,12 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { 
   Search, PlayCircle, PauseCircle, X, BookOpen, ArrowLeft, Home, 
   SkipForward, SkipBack, ChevronDown, ListMusic, RotateCcw, RotateCw,
-  Heart, FolderOpen
+  Heart, FolderOpen, Mic, Star, Scale, GraduationCap, MessageCircleQuestion, Folder
 } from 'lucide-react';
 
-// 👇 PASTE YOUR ENTIRE DATA OBJECT HERE (Keep it exactly as you have it) 👇
 const categoriesData = {  
-  "የቁርኣን ትምህርት": {
+    "የቁርኣን ትምህርት": {
     "ለመሐፈዝ የሚረዱ ነገሮች": [
       { id: 1, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/01.mp3" },
       { id: 2, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/02.mp3" },
@@ -821,8 +820,6 @@ const categoriesData = {
   { id: 526, title: "ፊልምና ድራማን ማን ጀመራቸው (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/39.mp3" }
 ]
 };
-
-
 // Helper to format seconds to MM:SS
 const formatTime = (time) => {
   if (isNaN(time)) return "0:00";
@@ -831,8 +828,19 @@ const formatTime = (time) => {
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
+// 🎨 Icon selector based on category name for beautiful folder decorations
+const getCategoryIcon = (catName) => {
+  if (catName.includes('ቁርኣን')) return <BookOpen size={80} className="text-violet-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+  if (catName.includes('ኪታብ')) return <Book size={80} className="text-amber-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+  if (catName.includes('ፊቅህ')) return <Scale size={80} className="text-blue-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+  if (catName.includes('ጁሙዓ')) return <Mic size={80} className="text-rose-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+  if (catName.includes('ልዩ')) return <Star size={80} className="text-emerald-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+  if (catName.includes('ሙሓደራዎች')) return <GraduationCap size={80} className="text-indigo-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+  if (catName.includes('ፈታዋ')) return <MessageCircleQuestion size={80} className="text-teal-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+  return <Folder size={80} className="text-slate-500/10 absolute -bottom-4 -right-4 transform -rotate-12 pointer-events-none" />;
+};
+
 export default function App() {
-  // 🚀 NEW DYNAMIC PATH NAVIGATION (Handles infinite folder depth)
   const [currentPath, setCurrentPath] = useState([]); 
   
   const [currentLesson, setCurrentLesson] = useState(null);             
@@ -847,11 +855,9 @@ export default function App() {
   
   const audioRef = useRef(null);
 
-  // Helper to get the current folder object
   const currentData = currentPath.reduce((acc, curr) => acc && acc[curr], categoriesData);
   const isAudioList = Array.isArray(currentData);
 
-  // Flatten all lessons for search (Deep Search)
   const allLessons = [];
   const extractLessons = (obj) => {
     if (Array.isArray(obj)) {
@@ -866,7 +872,6 @@ export default function App() {
     ? allLessons.filter(l => l.title.toLowerCase().includes(searchQuery.toLowerCase()))
     : null;
 
-  // Get current queue
   let currentQueue = allLessons;
   if (currentPath.length > 0 && isAudioList) {
     currentQueue = currentData;
@@ -931,29 +936,31 @@ export default function App() {
   };
 
   return (
-    <div className="max-w-md mx-auto min-h-screen bg-[#062c20] text-white pb-32 font-sans relative overflow-hidden">
+    <div className="max-w-md mx-auto min-h-screen bg-[#0F172A] text-slate-200 pb-32 font-sans relative overflow-hidden">
       
       {/* Header */}
-      <div className="p-5 bg-gradient-to-b from-[#084532] to-[#062c20] rounded-b-3xl shadow-lg border-b border-[#0f5c44]">
-        <div className="flex justify-between items-center mb-2">
-          <h1 className="text-xl font-bold tracking-wide">Ustaz Ahmed Adem</h1>
+      <div className="p-6 bg-gradient-to-b from-[#1E293B] to-[#0F172A] rounded-b-[2rem] shadow-xl border-b border-slate-800/50 sticky top-0 z-30">
+        <div className="flex justify-between items-center mb-4">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-white">Ustaz Ahmed Adem</h1>
+            <p className="text-xs text-violet-400 mt-1 font-medium tracking-wider uppercase">
+              {allLessons.length} Lessons Available
+            </p>
+          </div>
           <button 
             onClick={() => { setCurrentPath([]); setSearchQuery(""); }}
-            className="bg-[#0f5c44] p-2 rounded-full text-emerald-300 hover:text-white transition"
+            className="bg-slate-800/80 p-2.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-700 transition shadow-lg border border-slate-700/50"
           >
-            <Home size={18} />
+            <Home size={20} />
           </button>
         </div>
-        <p className="text-xs text-emerald-300/80 mb-4">
-          {Object.keys(categoriesData).length} ምድቦች • {allLessons.length} ትምህርቶች
-        </p>
 
-        <div className="relative">
-          <Search className="absolute left-3 top-3.5 text-emerald-400/60" size={18} />
+        <div className="relative group">
+          <Search className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-violet-400 transition-colors" size={20} />
           <input 
             type="text" placeholder="ትምህርት ይፈልጉ..." value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[#041f17] border border-emerald-700/50 rounded-2xl pl-10 pr-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400"
+            className="w-full bg-slate-900/80 border border-slate-700/60 rounded-2xl pl-12 pr-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all shadow-inner"
           />
         </div>
       </div>
@@ -961,66 +968,61 @@ export default function App() {
       <div className="p-5">
         {searchQuery ? (
           <div>
-            <h2 className="text-sm font-semibold text-emerald-300 mb-3">የፍለጋ ውጤቶች ({filteredLessons.length})</h2>
+            <h2 className="text-sm font-semibold text-violet-400 mb-4">Search Results ({filteredLessons.length})</h2>
             <div className="space-y-3">
               {filteredLessons.length > 0 ? filteredLessons.map(lesson => (
-                <div key={lesson.id} className="bg-[#0b3b2d] p-4 rounded-2xl flex items-center justify-between border border-emerald-800/60 shadow">
-                  <span className="text-sm font-medium flex-1 pr-3">{lesson.title}</span>
-                  <button onClick={() => playLesson(lesson)} className="text-emerald-400 hover:text-emerald-300">
-                    {currentLesson?.audioUrl === lesson.audioUrl && isPlaying ? <PauseCircle size={30} /> : <PlayCircle size={30} />}
+                <div key={lesson.id} className="bg-slate-800/40 p-4 rounded-2xl flex items-center justify-between border border-slate-700/50 shadow-sm hover:bg-slate-800/80 transition-colors">
+                  <span className="text-sm font-medium flex-1 pr-3 line-clamp-2">{lesson.title}</span>
+                  <button onClick={() => playLesson(lesson)} className="text-violet-400 hover:text-violet-300 p-1 bg-slate-900/50 rounded-full">
+                    {currentLesson?.audioUrl === lesson.audioUrl && isPlaying ? <PauseCircle size={32} /> : <PlayCircle size={32} />}
                   </button>
                 </div>
-              )) : <p className="text-xs text-emerald-400/70 text-center py-10">ምንም ትምህርት አልተገኘም</p>}
+              )) : <p className="text-sm text-slate-500 text-center py-10">No results found.</p>}
             </div>
           </div>
         ) : currentPath.length > 0 ? (
-          /* DYNAMIC LIST/GRID VIEW */
           <div>
-            <button onClick={() => setCurrentPath(currentPath.slice(0, -1))} className="flex items-center gap-2 text-emerald-300 text-sm mb-4 font-medium hover:text-white">
+            <button onClick={() => setCurrentPath(currentPath.slice(0, -1))} className="flex items-center gap-2 text-slate-400 text-sm mb-5 font-medium hover:text-violet-400 transition-colors">
               <ArrowLeft size={18} /> ወደ ኋላ ተመለስ
             </button>
-            <div className="mb-4 bg-[#084532] p-4 rounded-2xl border border-emerald-700/50">
-              <h2 className="text-base font-bold">{currentPath[currentPath.length - 1]}</h2>
-              <p className="text-xs text-emerald-300/70 mt-1">{isAudioList ? 'ትምህርቶች' : 'ንዑስ ምድቦችን ይምረጡ'}</p>
+            <div className="mb-5">
+              <h2 className="text-2xl font-bold text-white leading-tight">{currentPath[currentPath.length - 1]}</h2>
+              <p className="text-sm text-slate-400 mt-1">{isAudioList ? `${currentData.length} ትምህርቶች` : `${Object.keys(currentData).length} ንዑስ ምድቦች`}</p>
             </div>
 
             {isAudioList ? (
               <div className="space-y-3">
-                {currentData.map(lesson => (
-                  <div key={lesson.id} className="bg-[#0b3b2d] p-4 rounded-2xl flex items-center justify-between border border-emerald-800/60 shadow">
-                    <div className="flex-1 pr-3"><span className="text-sm font-medium">{lesson.title}</span></div>
-                    <button onClick={() => playLesson(lesson)} className="text-emerald-400 hover:text-emerald-300">
-                      {currentLesson?.audioUrl === lesson.audioUrl && isPlaying ? <PauseCircle size={32} /> : <PlayCircle size={32} />}
+                {currentData.map((lesson, idx) => (
+                  <div key={lesson.id} className="bg-slate-800/50 p-4 rounded-2xl flex items-center justify-between border border-slate-700/50 shadow-sm hover:border-violet-500/30 transition-all group">
+                    <div className="flex items-center gap-4 flex-1 pr-3">
+                      <span className="text-xs font-mono text-slate-500 w-6">{(idx + 1).toString().padStart(2, '0')}</span>
+                      <span className="text-sm font-medium leading-snug group-hover:text-white transition-colors">{lesson.title}</span>
+                    </div>
+                    <button onClick={() => playLesson(lesson)} className="text-violet-400 hover:text-violet-300 p-1">
+                      {currentLesson?.audioUrl === lesson.audioUrl && isPlaying ? <PauseCircle size={36} /> : <PlayCircle size={36} />}
                     </button>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 gap-4">
                 {Object.keys(currentData).map(subCat => {
                   const child = currentData[subCat];
-                  let countText = "";
-                  if (Array.isArray(child)) {
-                    countText = `${child.length} ትምህርቶች`;
-                  } else {
-                    let total = 0;
-                    const countAll = (obj) => {
-                      if (Array.isArray(obj)) total += obj.length;
-                      else if (typeof obj === 'object') Object.values(obj).forEach(countAll);
-                    };
-                    countAll(child);
-                    countText = `${Object.keys(child).length} ንዑስ ምድቦች • ${total} ትምህርቶች`;
-                  }
+                  let count = Array.isArray(child) ? child.length : Object.keys(child).length;
+                  let label = Array.isArray(child) ? "ትምህርቶች" : "ንዑስ ምድቦች";
 
                   return (
                     <div key={subCat} onClick={() => setCurrentPath([...currentPath, subCat])}
-                      className="bg-[#0b3b2d] p-4 rounded-2xl border border-emerald-800/60 cursor-pointer hover:border-emerald-500 transition shadow flex items-center justify-between"
+                      className="relative overflow-hidden bg-slate-800/40 p-5 rounded-2xl border border-slate-700/60 cursor-pointer hover:border-violet-500/50 hover:bg-slate-800/80 transition-all shadow-sm flex items-center justify-between group"
                     >
-                      <div>
-                        <h3 className="text-sm font-bold">{subCat}</h3>
-                        <p className="text-[11px] text-emerald-300/70 mt-1">{countText}</p>
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-violet-500/10 transition-colors"></div>
+                      <div className="relative z-10">
+                        <h3 className="text-base font-bold text-slate-200 group-hover:text-white transition-colors">{subCat}</h3>
+                        <p className="text-xs text-slate-400 mt-1">{count} {label}</p>
                       </div>
-                      <BookOpen className="text-emerald-400" size={20} />
+                      <div className="relative z-10 bg-slate-900/50 p-2 rounded-full border border-slate-700/50 group-hover:bg-violet-500/20 group-hover:border-violet-500/30 transition-all">
+                        <ChevronDown size={20} className="text-slate-400 group-hover:text-violet-400 -rotate-90" />
+                      </div>
                     </div>
                   );
                 })}
@@ -1028,9 +1030,8 @@ export default function App() {
             )}
           </div>
         ) : (
-          /* MAIN CATEGORIES GRID */
           <div>
-            <h2 className="text-sm font-semibold text-emerald-300/80 mb-3">ምድቦች</h2>
+            <h2 className="text-sm font-bold text-slate-400 mb-4 uppercase tracking-wider">Categories</h2>
             <div className="grid grid-cols-2 gap-4">
               {Object.keys(categoriesData).map(catName => {
                 let totalLessonsInCat = 0;
@@ -1042,12 +1043,21 @@ export default function App() {
 
                 return (
                   <div key={catName} onClick={() => setCurrentPath([catName])}
-                    className="bg-[#0b3b2d] p-4 rounded-3xl border border-emerald-800/60 cursor-pointer hover:border-emerald-500 transition-all shadow-lg flex flex-col justify-between h-36"
+                    className="relative overflow-hidden bg-gradient-to-br from-slate-800 to-slate-800/50 p-5 rounded-[1.5rem] border border-slate-700/60 cursor-pointer hover:border-violet-500/50 hover:shadow-lg hover:shadow-violet-500/10 transition-all duration-300 flex flex-col justify-between min-h-[140px] group"
                   >
-                    <BookOpen className="text-emerald-400" size={26} />
-                    <div>
-                      <h3 className="text-sm font-bold leading-snug">{catName}</h3>
-                      <p className="text-[11px] text-emerald-300/70 mt-1">
+                    {/* Decorative Background Elements */}
+                    {getCategoryIcon(catName)}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-violet-500/10 rounded-full blur-3xl -mr-8 -mt-8 group-hover:bg-violet-500/20 transition-all duration-500"></div>
+                    
+                    <div className="relative z-10 mb-4">
+                      <div className="w-10 h-10 bg-slate-900/50 rounded-xl flex items-center justify-center border border-slate-700/50 group-hover:border-violet-500/30 transition-colors">
+                        <FolderOpen size={20} className="text-violet-400" />
+                      </div>
+                    </div>
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-sm font-bold text-white leading-tight mb-1 group-hover:text-violet-200 transition-colors">{catName}</h3>
+                      <p className="text-[11px] font-medium text-slate-400">
                         {totalLessonsInCat} ትምህርቶች
                       </p>
                     </div>
@@ -1059,102 +1069,117 @@ export default function App() {
         )}
       </div>
 
-      {/* Mini Floating Player */}
+      {/* Mini Floating Player (Glassmorphism) */}
       {currentLesson && !isPlayerOpen && (
-        <div onClick={() => setIsPlayerOpen(true)} className="fixed bottom-4 left-4 right-4 bg-[#0f5c44] text-white p-3 rounded-2xl shadow-2xl flex items-center justify-between border border-emerald-500/50 z-40 cursor-pointer hover:bg-[#136d51] transition">
+        <div onClick={() => setIsPlayerOpen(true)} className="fixed bottom-6 left-4 right-4 bg-slate-800/80 backdrop-blur-xl text-white p-3 rounded-2xl shadow-2xl flex items-center justify-between border border-slate-600/50 z-40 cursor-pointer hover:bg-slate-800/90 transition-all transform hover:-translate-y-1">
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="bg-emerald-800 p-2 rounded-lg"><ListMusic size={20} className="text-emerald-300" /></div>
+            <div className="bg-violet-600/20 p-2.5 rounded-xl border border-violet-500/30">
+              <ListMusic size={20} className="text-violet-400" />
+            </div>
             <div className="flex-1 overflow-hidden">
-              <p className="text-sm font-bold truncate">{currentLesson.title}</p>
-              <p className="text-[10px] text-emerald-200">{isPlaying ? "በመደመጥ ላይ..." : "ቆሟል"}</p>
+              <p className="text-sm font-bold truncate text-slate-100">{currentLesson.title}</p>
+              <p className="text-[11px] text-violet-400 font-medium">{isPlaying ? "በመደመጥ ላይ..." : "ቆሟል"}</p>
             </div>
           </div>
-          <button onClick={(e) => { e.stopPropagation(); playLesson(currentLesson); }} className="text-white p-1">
-            {isPlaying ? <PauseCircle size={32} /> : <PlayCircle size={32} />}
+          <button onClick={(e) => { e.stopPropagation(); playLesson(currentLesson); }} className="text-violet-400 p-1 hover:text-violet-300 transition">
+            {isPlaying ? <PauseCircle size={36} /> : <PlayCircle size={36} />}
           </button>
         </div>
       )}
 
       {/* Full Screen Player Modal */}
       {isPlayerOpen && currentLesson && (
-        <div className="fixed inset-0 bg-[#041f17]/95 backdrop-blur-md z-50 flex flex-col transition-all duration-300">
+        <div className="fixed inset-0 bg-[#0F172A] z-50 flex flex-col transition-all duration-300">
           <audio ref={audioRef} src={currentLesson.audioUrl} autoPlay onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
 
-          <div className="flex justify-between items-center p-6 text-emerald-300">
-            <button onClick={() => setIsPlayerOpen(false)} className="p-2 bg-[#0b3b2d] rounded-full hover:bg-emerald-800 transition">
+          {/* Top Bar */}
+          <div className="flex justify-between items-center p-6 text-slate-300">
+            <button onClick={() => setIsPlayerOpen(false)} className="p-2.5 bg-slate-800/80 rounded-full hover:bg-slate-700 transition border border-slate-700/50 shadow-lg">
               <ChevronDown size={24} />
             </button>
-            <span className="text-xs font-semibold uppercase tracking-widest text-emerald-400">Now Playing</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Now Playing</span>
             <div className="w-10"></div>
           </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center px-8 text-center mt-[-40px]">
-            <div className="w-48 h-48 bg-gradient-to-br from-emerald-600 to-emerald-900 rounded-3xl shadow-2xl flex items-center justify-center mb-8 relative">
-               <ListMusic size={64} className="text-emerald-200/50" />
+          {/* Track Info & Artwork */}
+          <div className="flex-1 flex flex-col items-center justify-center px-8 text-center mt-[-40px] relative">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-violet-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div className="w-56 h-56 bg-gradient-to-br from-violet-600 to-indigo-900 rounded-[2rem] shadow-2xl shadow-violet-900/50 flex items-center justify-center mb-10 relative border border-white/10 group">
+               <div className="absolute inset-0 bg-black/10 rounded-[2rem]"></div>
+               <ListMusic size={80} className="text-white/20 drop-shadow-lg" />
             </div>
-            <h2 className="text-xl font-bold leading-tight mb-2">{currentLesson.title}</h2>
-            <p className="text-sm text-emerald-400">Ustaz Ahmed Adem</p>
+            
+            <h2 className="text-2xl font-bold leading-tight mb-3 text-white relative z-10">{currentLesson.title}</h2>
+            <p className="text-sm font-medium text-violet-400 relative z-10">Ustaz Ahmed Adem</p>
           </div>
 
-          <div className="p-8 pb-12 bg-[#062c20] rounded-t-[40px] shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+          {/* Controls Area */}
+          <div className="p-8 pb-10 bg-slate-900/90 rounded-t-[2.5rem] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-slate-800/80 relative z-20">
+            
+            {/* Seek Bar */}
             <div className="mb-8">
               <input type="range" min="0" max={duration || 0} value={currentTime} onChange={handleSeek}
-                className="w-full h-1 bg-[#0b3b2d] rounded-lg appearance-none cursor-pointer accent-emerald-400"
+                className="w-full h-1.5 bg-slate-800 rounded-full appearance-none cursor-pointer accent-violet-500 hover:accent-violet-400 transition-all"
               />
-              <div className="flex justify-between text-[10px] text-emerald-400 mt-2 font-mono">
+              <div className="flex justify-between text-[11px] font-medium text-slate-400 mt-3 font-mono">
                 <span>{formatTime(currentTime)}</span>
                 <span>{formatTime(duration)}</span>
               </div>
             </div>
 
+            {/* Playback Controls */}
             <div className="flex items-center justify-between mb-8 px-2">
-              <button onClick={handlePrevious} className="text-emerald-200 hover:text-white transition">
+              <button onClick={handlePrevious} className="text-slate-400 hover:text-white transition p-2">
                 <SkipBack size={32} />
               </button>
               
-              <button onClick={() => skipTime(-15)} className="text-emerald-300 hover:text-white flex flex-col items-center">
-                <RotateCcw size={28} />
-                <span className="text-[10px] font-bold mt-1">15s</span>
+              <button onClick={() => skipTime(-15)} className="text-slate-400 hover:text-white flex flex-col items-center transition p-2">
+                <RotateCcw size={26} />
+                <span className="text-[10px] font-bold mt-1 text-slate-500">15s</span>
               </button>
 
-              <button onClick={() => playLesson(currentLesson)} className="bg-emerald-500 text-[#041f17] p-4 rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-105 transition-transform">
-                {isPlaying ? <PauseCircle size={48} /> : <PlayCircle size={48} />}
+              <button onClick={() => playLesson(currentLesson)} className="bg-violet-600 hover:bg-violet-500 text-white p-5 rounded-full shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:scale-105 transition-all transform">
+                {isPlaying ? <PauseCircle size={48} className="drop-shadow-md" /> : <PlayCircle size={48} className="drop-shadow-md" />}
               </button>
 
-              <button onClick={() => skipTime(15)} className="text-emerald-300 hover:text-white flex flex-col items-center">
-                <RotateCw size={28} />
-                <span className="text-[10px] font-bold mt-1">15s</span>
+              <button onClick={() => skipTime(15)} className="text-slate-400 hover:text-white flex flex-col items-center transition p-2">
+                <RotateCw size={26} />
+                <span className="text-[10px] font-bold mt-1 text-slate-500">15s</span>
               </button>
 
-              <button onClick={handleNext} className="text-emerald-200 hover:text-white transition">
+              <button onClick={handleNext} className="text-slate-400 hover:text-white transition p-2">
                 <SkipForward size={32} />
               </button>
             </div>
 
-            <div className="flex items-center justify-between px-6 pt-4 border-t border-[#0b3b2d]">
-              <button onClick={() => setShowQueue(!showQueue)} className={`flex flex-col items-center ${showQueue ? 'text-emerald-400' : 'text-emerald-600 hover:text-emerald-400'} transition`}>
+            {/* Bottom Actions */}
+            <div className="flex items-center justify-between px-8 pt-4 border-t border-slate-800">
+              <button onClick={() => setShowQueue(!showQueue)} className={`flex flex-col items-center p-2 transition ${showQueue ? 'text-violet-400' : 'text-slate-500 hover:text-slate-300'}`}>
                 <ListMusic size={24} />
               </button>
               
-              <button className="flex flex-col items-center text-emerald-600 hover:text-emerald-400 transition">
+              <button className="flex flex-col items-center p-2 text-slate-500 hover:text-slate-300 transition">
                 <Heart size={24} />
               </button>
 
-              <button onClick={() => setIsPlayerOpen(false)} className="flex flex-col items-center text-emerald-600 hover:text-emerald-400 transition">
+              <button onClick={() => setIsPlayerOpen(false)} className="flex flex-col items-center p-2 text-slate-500 hover:text-slate-300 transition">
                 <FolderOpen size={24} />
               </button>
             </div>
+
           </div>
         </div>
       )}
 
       {/* Queue/List Drawer */}
       {showQueue && isPlayerOpen && (
-        <div className="fixed inset-0 bg-[#041f17]/98 z-[60] flex flex-col">
-            <div className="flex justify-between items-center p-6 border-b border-[#0b3b2d]">
-                <h2 className="text-lg font-bold text-white">Playing Queue</h2>
-                <button onClick={() => setShowQueue(false)} className="text-emerald-400">
-                    <X size={24} />
+        <div className="fixed inset-0 bg-[#0F172A]/95 backdrop-blur-xl z-[60] flex flex-col animate-fadeIn">
+            <div className="flex justify-between items-center p-6 border-b border-slate-800">
+                <h2 className="text-xl font-bold text-white">Up Next</h2>
+                <button onClick={() => setShowQueue(false)} className="text-slate-400 hover:text-white bg-slate-800 p-2 rounded-full transition">
+                    <X size={20} />
                 </button>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-2">
@@ -1162,12 +1187,19 @@ export default function App() {
                     <div 
                         key={lesson.id} 
                         onClick={() => { playLesson(lesson); setShowQueue(false); }}
-                        className={`p-3 rounded-xl flex items-center gap-3 cursor-pointer ${currentLesson.audioUrl === lesson.audioUrl ? 'bg-emerald-900/50 border border-emerald-700' : 'hover:bg-[#0b3b2d]'}`}
+                        className={`p-4 rounded-2xl flex items-center gap-4 cursor-pointer transition-all border ${currentLesson.audioUrl === lesson.audioUrl ? 'bg-violet-900/30 border-violet-500/50 shadow-lg' : 'bg-transparent border-transparent hover:bg-slate-800/50'}`}
                     >
-                        <span className="text-emerald-500 text-xs font-mono w-6">{idx + 1}</span>
-                        <span className={`text-sm truncate ${currentLesson.audioUrl === lesson.audioUrl ? 'text-emerald-300 font-bold' : 'text-gray-300'}`}>
+                        <span className={`text-sm font-mono w-6 ${currentLesson.audioUrl === lesson.audioUrl ? 'text-violet-400' : 'text-slate-500'}`}>{idx + 1}</span>
+                        <span className={`text-sm truncate ${currentLesson.audioUrl === lesson.audioUrl ? 'text-violet-200 font-bold' : 'text-slate-300'}`}>
                             {lesson.title}
                         </span>
+                        {currentLesson.audioUrl === lesson.audioUrl && isPlaying && (
+                          <div className="ml-auto flex gap-1 items-end h-4">
+                            <div className="w-1 bg-violet-500 animate-[bounce_1s_infinite] h-2"></div>
+                            <div className="w-1 bg-violet-500 animate-[bounce_1s_infinite_0.2s] h-4"></div>
+                            <div className="w-1 bg-violet-500 animate-[bounce_1s_infinite_0.4s] h-3"></div>
+                          </div>
+                        )}
                     </div>
                 ))}
             </div>
@@ -1175,4 +1207,4 @@ export default function App() {
       )}
     </div>
   );
-  }
+     }
