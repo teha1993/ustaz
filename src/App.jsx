@@ -127,7 +127,7 @@ const categoriesData = {
     { id: 566, title: "ሱረቱ አል-ፋቲሃ (40)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/40.mp3" }
   ],
   "002 - ሱረቱ አን-ናስ": [
-    { id: 567, title: "ሱረቱ አን-ናስ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alnas/1.mp3"},
+    { id: 567, title: "ሱረቱ አን-ናስ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alnas/1.mp3" },
   { id: 568, title: "ሱረቱ አን-ናስ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alnas/2.mp3" },
   { id: 569, title: "ሱረቱ አን-ናስ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alnas/3.mp3" }
 ],
