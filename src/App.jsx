@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 
 const categoriesData = {  
-    "የቁርኣን ትምህርት": {
+  "የቁርኣን ትምህርት": {
     "ለመሐፈዝ የሚረዱ ነገሮች": [
       { id: 1, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/01.mp3" },
       { id: 2, title: "በቁርኣን ለመጠቀምና እሱንም ለመሐፈዝ የሚረዱ ነገሮች (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/audio-files/02.mp3" },
@@ -1207,4 +1207,4 @@ export default function App() {
       )}
     </div>
   );
-     }
+      }
