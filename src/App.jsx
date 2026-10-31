@@ -784,7 +784,7 @@ const categoriesData = {
   { id: 490, title: "ዘመድ ወዳጅን በሞት ላጣ ሰው የተሰጠ ምክር", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/03.mp3" },
   { id: 491, title: "አል ሂጅብ በኡስታዝ አህመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/04.amr" },
   { id: 492, title: "ከኢማን ፍሬዎች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/05.mp3" },
-  { id: 493, title: "የልብ ቅርፀን መጠቀም በኡስታዝ አህመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/06.aac" },
+  { id: 493, title: "የልብ ቅርፀን መጠቀም በኡስታዝ አህመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/06.mp3" },
   { id: 494, title: "በዱን ላይ ለመፅናት", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/07.amr" },
   { id: 495, title: "ጥቀት ምክሮች ለሙስሊም አህቶች", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/08.mp3" },
   { id: 496, title: "ተቀዋ በኡስታዝ አሕመድ አደም", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Muhadera/09.mp3" },
