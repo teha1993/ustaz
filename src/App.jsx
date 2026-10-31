@@ -84,9 +84,9 @@ const categoriesData = {
       { id: 114, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 13", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/13.mp3" },
       { id: 115, title: "የተጅዊድ ትምህርት ቱሕፈቱል አጥፋል 14", audioUrl: "https://github.com/teha1993/ustaz/releases/download/tuhfatul-atfal/14.mp3" }
     ],
-   "የቁርኣን ተፍሲር": {
-     "ሱረቱ አል-ፋቲሃ": [
-    { id: 527, title: "ሱረቱ አል-ፋቲሃ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/1.mp3" },
+"የቁርኣን ተፍሲር": {
+  "ሱረቱ አል-ፋቲሃ": [
+        { id: 527, title: "ሱረቱ አል-ፋቲሃ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/1.mp3" },
     { id: 528, title: "ሱረቱ አል-ፋቲሃ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/2.mp3" },
     { id: 529, title: "ሱረቱ አል-ፋቲሃ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/3.mp3" },
     { id: 530, title: "ሱረቱ አል-ፋቲሃ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/4.mp3" },
@@ -126,8 +126,27 @@ const categoriesData = {
     { id: 564, title: "ሱረቱ አል-ፋቲሃ (38)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/38.mp3" },
     { id: 565, title: "ሱረቱ አል-ፋቲሃ (39)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/39.mp3" },
     { id: 566, title: "ሱረቱ አል-ፋቲሃ (40)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alfatiha/40.mp3" }
+    ],
+  "ሱረቱ አን-ናስ": [
+  { id: 567, title: "ሱረቱ አን-ናስ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alnas/1.mp3" },
+  { id: 568, title: "ሱረቱ አን-ናስ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alnas/2.mp3" },
+  { id: 569, title: "ሱረቱ አን-ናስ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Alnas/3.mp3" }
+],
+"ሱረቱ አል-ፈለቅ": [
+  { id: 570, title: "ሱረቱ አል-ፈለቅ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alfelq/1.mp3" },
+  { id: 571, title: "ሱረቱ አል-ፈለቅ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alfelq/2.mp3" },
+  { id: 572, title: "ሱረቱ አል-ፈለቅ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alfelq/3.mp3" },
+  { id: 573, title: "ሱረቱ አል-ፈለቅ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alfelq/4.mp3" },
+  { id: 574, title: "ሱረቱ አል-ፈለቅ (5)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alfelq/5.mp3" },
+  { id: 575, title: "ሱረቱ አል-ፈለቅ (6)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alfelq/6.mp3" }
+],
+"ሱረቱ አል-ኢኽላስ": [
+  { id: 576, title: "ሱረቱ አል-ኢኽላስ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alihlas/1.mp3" },
+  { id: 577, title: "ሱረቱ አል-ኢኽላስ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alihlas/2.mp3" },
+  { id: 578, title: "ሱረቱ አል-ኢኽላስ (3)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alihlas/3.mp3" },
+  { id: 579, title: "ሱረቱ አል-ኢኽላስ (4)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/alihlas/4.mp3" }
   ]
-   },
+},
     "አል ጀዘሪያ የተጅዊድ ትምህርት": [
       { id: 116, title: "የተጅዊድ ትምህርት አል ጀዘሪያ (1)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Aljzeria/1.mp3" },
       { id: 117, title: "የተጅዊድ ትምህርት አል ጀዘሪያ (2)", audioUrl: "https://github.com/teha1993/ustaz/releases/download/Aljzeria/2.mp3" },
